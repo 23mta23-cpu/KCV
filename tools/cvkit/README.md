@@ -1,4 +1,4 @@
-# cvkit – moderner Lebenslauf und Anschreiben aus einer Datendatei
+# cvkit: moderner Lebenslauf und Anschreiben aus einer Datendatei
 
 Erzeugt aus einer JSON-Datei drei aufeinander abgestimmte Dokumente:
 
@@ -32,9 +32,22 @@ python3 finalize.py out/Max_Mustermann_Lebenslauf_Design.pdf "Lebenslauf Max Mus
 
 `photo` in der Datendatei ist optional. Ohne Foto erscheint ein Kreis mit Initialen.
 
-**Stichwort-Einstieg in Aufzählungen:** `**Angebote:** Angebote im ERP-System erstellt` setzt das Stichwort fett. So erfasst eine Vertriebsleitung jeden Punkt beim Überfliegen. In der ATS-Variante bleibt es normaler Text.
-
 **Grußformel im Anschreiben:** Das Feld `closing` ist optional (Standard: „Mit freundlichen Grüßen“). Für Startups, die in der Anzeige duzen, passt `"closing": "Viele Grüße"`.
+
+## Klingt es nach Mensch? `ki_check.py`
+
+```sh
+python3 ki_check.py examples/muster_daten.json examples/muster_anschreiben.json   # oder fertige PDFs
+```
+
+Das Skript meldet typische Merkmale von KI-Texten. Grundlage sind [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) und Artikel von t3n und all-ai.de. Vor dem Versand sollte es 0 Treffer geben. Die Merkmale sind Hinweise, kein Beweis. Ein Text ohne Treffer braucht trotzdem einen Menschen, der ihn liest.
+
+- Keine Gedankenstriche (– oder —), auch nicht in Betreffzeilen. Zeiträume mit Bindestrich: `07/2023 - 12/2025`.
+- Keine Aufzählungen mit fettem Stichwort am Anfang. Wikipedia nennt sie „inline-header lists“. `**…**` funktioniert technisch noch, sollte aber nicht verwendet werden.
+- Keine Dreier-Aufzählungen als Stilmittel, kein „nicht nur … sondern“, kein „nicht X, sondern Y“.
+- Keine Zusammenfassungssätze („Ich weiß also …“) und kein verstärkendes „Genau …“.
+- Höchstens ein Doppelpunkt im Fließtext eines Anschreibens.
+- Selbstlob („lerne schnell“) nur einmal und mit Beleg.
 
 ## Regeln, die aus Tests stammen
 

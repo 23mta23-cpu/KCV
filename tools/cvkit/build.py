@@ -231,7 +231,7 @@ def ats_html(d):
 .kv {{ margin-bottom: 1.6mm; font-size: 9.6pt; }}
 .kv b {{ color: {NAVY}; }}
 """
-    langs = " · ".join(f'{l["name"]} – {l["level"]}' for l in d["languages"])
+    langs = ", ".join(f'{l["name"]} ({l["level"]})' for l in d["languages"])
     return f"""<!doctype html><html lang="de"><head><meta charset="utf-8"><title>{e(d['meta']['title'])}</title>
 <style>{css}</style></head><body><div class="page">
 <header class="a-band"><h1>{e(d['name'])}</h1><div class="title">{e(d['title'])}</div>
@@ -241,10 +241,10 @@ def ats_html(d):
 <section><h2>Berufserfahrung</h2>{ats_entries(d['experience'])}</section>
 <section><h2>Ausbildung</h2>{ats_entries(d['education'])}</section>
 <section><h2>Kenntnisse</h2>
-<p class="kv"><b>Kunden &amp; Vertrieb:</b> {e(' · '.join(d['skills']))}</p>
-<p class="kv"><b>IT:</b> {e(' · '.join(d['it']))}</p>
+<p class="kv"><b>Kompetenzen:</b> {e(', '.join(d['skills']))}</p>
+<p class="kv"><b>IT:</b> {e(', '.join(d['it']))}</p>
 <p class="kv"><b>Sprachen:</b> {e(langs)}</p>
-<p class="kv"><b>Branche:</b> {e(' · '.join(d['industry']))}</p>
+<p class="kv"><b>Branche:</b> {e(', '.join(d['industry']))}</p>
 </section></div></div></body></html>"""
 
 

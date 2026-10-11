@@ -13,7 +13,7 @@ werden und trotzdem nach einem Menschen klingen.
 - Eine Spalte, keine Textfelder, keine Tabellen für Inhalte, keine Kopf- und Fußzeilen mit
   Kontaktdaten, keine Grafiken außer optional einem Foto.
 - Standardüberschriften: Kurzprofil, Berufserfahrung, Ausbildung, Kenntnisse.
-- Zeiträume als MM/JJJJ in der Zeile unter dem Titel: "Arbeitgeber, Ort  |  MM/JJJJ – MM/JJJJ".
+- Zeiträume als MM/JJJJ in der Zeile unter dem Titel: "Arbeitgeber, Ort  |  MM/JJJJ - MM/JJJJ".
   Nicht rechtsbündig per Tabstopp: pdfminer und viele ATS-Parser trennen rechtsbündige Daten
   vom Eintrag und ordnen sie dem falschen Job zu.
 - Kenntnisse als "Bezeichnung: Inhalt" in einem Absatz, keine Tab-Spalten (gleicher Grund).
@@ -21,7 +21,7 @@ werden und trotzdem nach einem Menschen klingen.
 - Datei-Metadaten (Titel, Autor) auf den Kandidaten setzen; Reste fremder Vorlagen entfernen.
 - Kein Wasserzeichen, keine Unterschrift, kein Datum unten, keine Rubrik zu Familienstand,
   Religion oder Staatsangehörigkeit. Ausnahme: Steht eine Familienzeit im Lebenslauf, darf
-  ein Satz zur Verfügbarkeit darunter stehen (z. B. "Betreuung ist organisiert – Start ab
+  ein Satz zur Verfügbarkeit darunter stehen (z. B. "Kinderbetreuung organisiert, Start ab
   sofort möglich"), weil er die naheliegende Frage beantwortet.
 - Immer zwei Varianten liefern: Design (zweispaltig, mit Foto, für E-Mail und Ansprechpartner)
   und ATS (einspaltig, für Online-Portale). Werkzeug: `tools/cvkit` in diesem Repository.
@@ -35,9 +35,12 @@ werden und trotzdem nach einem Menschen klingen.
   Profil. Das Profil wiederholt keine Stichpunkte, es erzählt, wer der Kandidat ist.
 - Formulierungen des Kandidaten aus früheren Versionen übernehmen, wenn sie stimmen. Seine
   eigenen Worte klingen nach Mensch, nicht nach Vorlage.
-- Stichpunkte beginnen mit einem fetten Stichwort (`**Neue Standorte:** …`), damit eine
-  Vertriebsleitung in Sekunden erfasst, was der Kandidat gemacht hat. Danach aktive Verben,
-  aber den eigenen Anteil ehrlich lassen ("mit eingebunden", "mitgearbeitet").
+- Stichpunkte ohne fettes Stichwort am Anfang: Listen mit fetten Einstiegen sind ein bekanntes
+  KI-Merkmal (Wikipedia: "inline-header vertical lists"). Die wichtigsten Stichpunkte nach oben,
+  aktive Verben, den eigenen Anteil ehrlich lassen ("mit eingebunden", "mitgearbeitet").
+- Keine Gedankenstriche, auch nicht in Datumsangaben: `07/2023 - 12/2025`. Trennzeichen in
+  Kopfzeilen: `|` oder Komma.
+- Vor der Abgabe `tools/cvkit/ki_check.py` laufen lassen. Ziel: 0 Treffer.
 - Begriffe der Zielbranche nur verwenden, wenn sie passen: Ärzte im Netzwerk eines Anbieters
   sind Partner, keine Kunden.
 - "Verfügbar ab sofort" in den Kontaktblock, wenn es stimmt. Für Firmen mit offener Stelle

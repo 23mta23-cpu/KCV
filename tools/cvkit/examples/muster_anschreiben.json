@@ -2,14 +2,18 @@
   "date": "Musterstadt, 01.01.2027",
   "letters": {
     "Anschreiben_Beispiel_GmbH": {
-      "to": ["Beispiel GmbH", "Musterweg 1", "12345 Musterstadt"],
+      "to": [
+        "Beispiel GmbH",
+        "Musterweg 1",
+        "12345 Musterstadt"
+      ],
       "subject": "Bewerbung als Inside Sales Representative (m/w/d)",
       "greeting": "Sehr geehrte Damen und Herren,",
       "body": [
-        "erster Absatz: ein konkreter Grund für genau diese Firma, keine Standardeinleitung.",
-        "zweiter Absatz: ein echtes Beispiel aus dem Lebenslauf, das zur Stelle passt.",
-        "dritter Absatz: fehlende Erfahrung offen in einem Satz benennen und mit der Einarbeitung der Firma verbinden.",
-        "Ich kann kurzfristig anfangen und freue mich auf ein Gespräch mit Ihnen."
+        "bei der Muster Handels GmbH betreue ich seit drei Jahren rund 120 Bestandskunden am Telefon. Immer öfter fragen sie nach digitalen Bestellwegen. Deshalb möchte ich in den Vertrieb von Software wechseln.",
+        "Ich erstelle Angebote im ERP-System und kümmere mich um Reklamationen, bis sie gelöst sind. Ein Kunde wollte im letzten Jahr kündigen, nach zwei Gesprächen ist er geblieben.",
+        "Mit Softwarevertrieb habe ich noch keine Erfahrung. Ihre Einarbeitung mit festen Ansprechpartnern ist für mich deshalb ein guter Start.",
+        "Ich kann zum 1. März anfangen und freue mich auf ein Gespräch mit Ihnen."
       ]
     }
   }
