@@ -21,7 +21,10 @@ werden und trotzdem nach einem Menschen klingen.
 - Datei-Metadaten (Titel, Autor) auf den Kandidaten setzen; Reste fremder Vorlagen entfernen.
 - Kein Wasserzeichen, keine Unterschrift, kein Datum unten, keine Angaben zu Familienstand,
   Religion oder Staatsangehörigkeit.
-- Immer zwei Varianten liefern: mit Foto (Direktbewerbung DE) und ohne Foto (ATS-Portale).
+- Immer zwei Varianten liefern: Design (zweispaltig, mit Foto, für E-Mail und Ansprechpartner)
+  und ATS (einspaltig, für Online-Portale). Werkzeug: `tools/cvkit` in diesem Repository.
+- Laufweite von Überschriften höchstens `.045em`: Bei breiterer Laufweite liest pdfminer
+  "B E R U F S E R F A H R U N G" und das ATS erkennt den Abschnitt nicht.
 - Foto als JPEG mit weißem Hintergrund einbetten, schwebend rechts oben, damit der Textfluss
   linear bleibt.
 

@@ -1,0 +1,16 @@
+{
+  "date": "Musterstadt, 01.01.2027",
+  "letters": {
+    "Anschreiben_Beispiel_GmbH": {
+      "to": ["Beispiel GmbH", "Musterweg 1", "12345 Musterstadt"],
+      "subject": "Bewerbung als Inside Sales Representative (m/w/d)",
+      "greeting": "Sehr geehrte Damen und Herren,",
+      "body": [
+        "erster Absatz: ein konkreter Grund für genau diese Firma, keine Standardeinleitung.",
+        "zweiter Absatz: ein echtes Beispiel aus dem Lebenslauf, das zur Stelle passt.",
+        "dritter Absatz: fehlende Erfahrung offen in einem Satz benennen und mit der Einarbeitung der Firma verbinden.",
+        "Ich kann kurzfristig anfangen und freue mich auf ein Gespräch mit Ihnen."
+      ]
+    }
+  }
+}
