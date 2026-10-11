@@ -38,14 +38,25 @@ Du schreibst Anschreiben und bereitest Gespräche vor.
 - Nicht mit der nacherzählten Anzeige beginnen und sie mit drei Wörtern bestätigen
   ("Diesen Weg suche ich."). Mit dem eigenen Gedanken anfangen.
 - Keine Sätze wortgleich aus dem Lebenslauf übernehmen. Der Leser hat beide Dokumente vor sich.
-- Satzlängen mischen. Konkrete Dinge nennen (Strahlenschutzkurse, rund 20 Standorte) statt
-  Eigenschaften ("kommunikationsstark").
+- Satzlängen mischen. Konkrete Dinge nennen (Zahl der betreuten Standorte, organisierte
+  Schulungen) statt Eigenschaften ("kommunikationsstark").
 - Grußformel ohne Doppelung: "Liebes SumUp-Team," statt "Hallo liebes SumUp-Team,".
 - Vor dem Schreiben prüfen, was die Firma verkauft. Eine "Wenn eure Plattform …"-Formulierung
   verrät, dass man es nicht weiß.
 - Jeden Brief mit `tools/cvkit/ki_check.py` prüfen und danach von einem zweiten Agenten ohne
   Vorwissen gegenlesen lassen. Der Prüfer braucht die vollständige Faktenliste aus dem
   Original-Lebenslauf, sonst meldet er belegte Aussagen als erfunden.
+
+## Woran man einen Menschen erkennt (Wikipedia "Signs of human writing")
+- Konkrete, ungewöhnliche Details, die nur der Kandidat kennt: eine Zahl, ein Name, ein Moment.
+  Das ist das stärkste Signal. Fehlt es, beim Kandidaten nachfragen, nie erfinden.
+- Schlichte Verben wie ist, war, hat. Nicht "fungiert als", "stellt dar", "ermöglicht".
+- Rhythmus: neben mittellangen Sätzen auch sehr kurze ("Die habe ich.") und einzelne lange.
+  `ki_check.py` zeigt die Streuung als Hinweis. Allein ist sie ein schwaches Signal.
+- Der Kandidat muss jeden Satz im Gespräch erklären können. Was er nicht belegen kann, fliegt raus.
+- Formulierungen aus älteren, selbst geschriebenen Unterlagen des Kandidaten übernehmen.
+- Keine absichtlichen Fehler einbauen. Saubere Grammatik und förmlicher Ton sind laut Wikipedia
+  kein KI-Merkmal.
 
 ## Ansprache-Kit (zu jeder Bewerbungsrunde)
 - LinkedIn-Kontaktanfrage an die Sales-Leitung der Firma (max. 300 Zeichen), Nachricht nach

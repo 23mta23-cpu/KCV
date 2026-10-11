@@ -50,6 +50,9 @@ Das Skript meldet typische Merkmale von KI-Texten. Grundlage sind [Wikipedia: Si
 - Nicht mit der nacherzählten Anzeige beginnen und sie kurz bestätigen („Diesen Weg suche ich.“).
 - Höchstens ein Doppelpunkt im Fließtext eines Anschreibens.
 - Selbstlob („lerne schnell“) nur einmal und mit Beleg.
+- Keine gestelzten Verben („fungiert als“, „ermöglicht“, „stellt dar“), lieber ist, war, hat.
+
+Zusätzlich zeigt das Skript **Mensch-Signale** als Hinweis, nicht als Treffer: die Streuung der Satzlängen und die Zahl konkreter Zahlen im Brief. Wikipedia nennt im Abschnitt „Signs of human writing“ schlichte Verben und konkrete, ungewöhnliche Details als typisch menschlich. Die Satzlängen-Streuung („burstiness“) ist dagegen ein schwaches Signal, das Detektoren nutzen, aber nicht zuverlässig ist. Absichtliche Fehler bringen nichts: Saubere Grammatik gilt laut Wikipedia nicht als KI-Merkmal.
 
 ## Regeln, die aus Tests stammen
 

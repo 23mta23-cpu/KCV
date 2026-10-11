@@ -24,6 +24,7 @@ RULES = [
     ("Lehrsatz am Absatzende", r"\b[Dd]abei habe ich (gelernt|gesehen|erlebt)\b"),
     ("Gleichsetzung mit 'statt'", r"\bstatt\b"),
     ("Kurzbestätigung nach Anzeigen-Zitat", r"(^|[.!?]\s+)(Diesen Weg (suche|möchte|will)|Das trifft auf mich zu|So will ich arbeiten|Ich bin einer)\b"),
+    ("gestelztes Verb statt ist/hat", r"\b(ermöglich\w*|gewährleist\w*|fungier\w*|stellt\s+\w+\s+dar|dient als|zeichne[nt]? sich|unterstreich\w*|verdeutlich\w*)\b"),
     ("Selbstlob ohne Beleg", r"\b(lerne schnell|arbeite mich schnell ein|teamfähig|belastbar|zielstrebig|kommunikationsstark)\b"),
 ]
 
@@ -31,24 +32,24 @@ RULES = [
 def texts(path):
     if path.endswith(".pdf"):
         from pdfminer.high_level import extract_text
-        yield path, extract_text(path)
+        yield path, extract_text(path), "text"
         return
     raw = open(path, encoding="utf-8").read()
     if not path.endswith(".json"):
-        yield path, raw
+        yield path, raw, "text"
         return
     data = json.loads(raw)
     if "letters" in data:
         for key, letter in data["letters"].items():
             parts = [letter.get("subject", ""), letter.get("greeting", "")] + letter["body"]
-            yield key, "\n".join(parts)
+            yield key, "\n".join(parts), "brief"
         return
     parts = [data.get("title", ""), data.get("target", ""), data.get("profile", "")]
     for section in ("experience", "education"):
         for item in data.get(section, []):
             parts += [item.get("role", ""), item.get("org", ""), item.get("dates", "")] + item.get("bullets", [])
     parts += data.get("skills", [])
-    yield path, "\n".join(parts)
+    yield path, "\n".join(parts), "cv"
 
 
 def check(name, text):
@@ -66,15 +67,40 @@ def check(name, text):
     return findings
 
 
+def signals(text):
+    """Positive Merkmale menschlicher Texte. Nur Hinweise, sie zaehlen nicht als Treffer.
+
+    Wikipedia ("Signs of human writing"): schlichte Verben wie ist/hat, konkrete und ungewoehnliche
+    Details. Satzrhythmus ("burstiness") ist ein schwaches Signal, aber billig zu pruefen.
+    """
+    body = "\n".join(text.split("\n")[2:]) if text.count("\n") > 2 else text
+    lengths = [len(s.split()) for s in re.split(r"(?<=[.!?])\s+", body.strip()) if len(s.split()) > 1]
+    if len(lengths) < 4:
+        return None
+    mean = sum(lengths) / len(lengths)
+    spread = (sum((n - mean) ** 2 for n in lengths) / len(lengths)) ** 0.5 / mean
+    numbers = len(re.findall(r"(?<![\w°])\d+(?:[.,]\d+)?(?![\d°])", body))
+    tips = []
+    if spread < 0.3:
+        tips.append("Rhythmus eher gleichfoermig, einen sehr kurzen oder einen langen Satz einbauen")
+    if numbers == 0:
+        tips.append("keine Zahl, ein konkretes Detail ergaenzen, das nur der Kandidat kennt")
+    line = f"Satzlaengen {min(lengths)} bis {max(lengths)} Woerter, Streuung {spread:.2f}, Zahlen {numbers}"
+    return line + (" | Tipp: " + "; ".join(tips) if tips else "")
+
+
 def main():
     total = 0
     for path in sys.argv[1:]:
-        for name, text in texts(path):
+        for name, text, kind in texts(path):
             found = check(name, text)
             total += len(found)
             print(f"{name}: {'ok' if not found else str(len(found)) + ' Treffer'}")
             for label, snippet in found:
                 print(f"   - {label}: ...{snippet}...")
+            info = signals(text) if kind != "cv" else None
+            if info:
+                print(f"   Mensch-Signale: {info}")
     sys.exit(1 if total else 0)
 
 
