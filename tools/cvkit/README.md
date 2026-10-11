@@ -32,6 +32,10 @@ python3 finalize.py out/Max_Mustermann_Lebenslauf_Design.pdf "Lebenslauf Max Mus
 
 `photo` in der Datendatei ist optional. Ohne Foto erscheint ein Kreis mit Initialen.
 
+**Stichwort-Einstieg in Aufzählungen:** `**Angebote:** Angebote im ERP-System erstellt` setzt das Stichwort fett. So erfasst eine Vertriebsleitung jeden Punkt beim Überfliegen. In der ATS-Variante bleibt es normaler Text.
+
+**Grußformel im Anschreiben:** Das Feld `closing` ist optional (Standard: „Mit freundlichen Grüßen“). Für Startups, die in der Anzeige duzen, passt `"closing": "Viele Grüße"`.
+
 ## Regeln, die aus Tests stammen
 
 - **Laufweite höchstens `.045em`.** Bei breiter Laufweite (z. B. `.17em`) liest pdfminer, die Grundlage vieler ATS-Parser, Überschriften als „B E R U F S E R F A H R U N G“. Das ATS erkennt dann den Abschnitt nicht.

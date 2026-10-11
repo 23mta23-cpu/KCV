@@ -8,6 +8,7 @@ import html
 import json
 import mimetypes
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -39,6 +40,11 @@ def icon(name, size="100%"):
 
 def e(text):
     return html.escape(text, quote=True)
+
+
+def rich(text):
+    """Escape text; **fett** wird zu <b>fett</b> (für Stichwort-Einstiege in Aufzählungen)."""
+    return re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", e(text))
 
 
 def data_uri(path):
@@ -84,7 +90,7 @@ def entries_html(items):
     out = []
     for it in items:
         meta = " · ".join(x for x in [e(it["org"]) if it["org"] else "", ] if x)
-        bullets = "".join(f"<li>{e(b)}</li>" for b in it["bullets"])
+        bullets = "".join(f"<li>{rich(b)}</li>" for b in it["bullets"])
         out.append(
             f'<div class="entry"><span class="dot"></span>'
             f'<div class="entry-head"><h3>{e(it["role"])}</h3>'
@@ -168,6 +174,7 @@ section {{ position: relative; margin-bottom: 6.6mm; }}
 .entry .dates {{ flex: none; font-size: 8.8pt; font-weight: 700; color: {ACCENT}; }}
 .entry .org {{ font-size: 9.4pt; color: {MUTED}; margin-top: .3mm; }}
 .entry ul {{ margin-top: 1.4mm; list-style: none; }}
+.entry li b {{ color: {NAVY}; font-weight: 700; }}
 .entry li {{ position: relative; padding-left: 3.4mm; margin-bottom: 1.1mm; font-size: 9.6pt; line-height: 1.45; }}
 .entry li::before {{ content: ''; position: absolute; left: 0; top: 1.85mm; width: 1.4mm; height: 1.4mm; border-radius: 50%; background: {ACCENT}; }}
 """
@@ -196,7 +203,7 @@ def ats_entries(items):
     out = []
     for it in items:
         meta = "  |  ".join(x for x in [it["org"], it["dates"]] if x)
-        bullets = "".join(f"<li>{e(b)}</li>" for b in it["bullets"])
+        bullets = "".join(f"<li>{rich(b)}</li>" for b in it["bullets"])
         out.append(f'<div class="a-entry"><h3>{e(it["role"])}</h3><div class="a-meta dates">{e(meta)}</div>'
                    + (f"<ul>{bullets}</ul>" if bullets else "") + "</div>")
     return "".join(out)
@@ -218,6 +225,7 @@ def ats_html(d):
 .a-entry h3 {{ font-family: 'Lato'; font-size: 10.2pt; font-weight: 700; color: {NAVY}; }}
 .a-meta {{ font-size: 9pt; color: {MUTED}; }}
 .a-entry ul {{ margin-top: 1.2mm; padding-left: 4.4mm; }}
+.a-entry li b {{ font-weight: 700; }}
 .a-entry li {{ margin-bottom: 1mm; font-size: 9.6pt; }}
 .a-entry li::marker {{ color: {ACCENT}; }}
 .kv {{ margin-bottom: 1.6mm; font-size: 9.6pt; }}
@@ -264,7 +272,7 @@ def letter_html(d, L, date):
 <header class="l-band"><h1>{e(d['name'])}</h1><div class="title">{e(d['title'])}</div><div class="contact">{contact}</div></header>
 <div class="l-body"><div class="to">{to}</div><div class="date">{e(date)}</div>
 <div class="subject">{e(L['subject'])}</div><p>{e(L['greeting'])}</p>{body}
-<div class="sign">Mit freundlichen Grüßen<div class="name">{e(d['name'])}</div></div>
+<div class="sign">{e(L.get("closing", "Mit freundlichen Grüßen"))}<div class="name">{e(d['name'])}</div></div>
 <div class="attach">Anlagen: Lebenslauf, Zeugnisse</div></div></div></body></html>"""
 
 
