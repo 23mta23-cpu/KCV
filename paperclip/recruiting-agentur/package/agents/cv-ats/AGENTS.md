@@ -45,6 +45,9 @@ werden und trotzdem nach einem Menschen klingen.
   sind Partner, keine Kunden.
 - "Verfügbar ab sofort" in den Kontaktblock, wenn es stimmt. Für Firmen mit offener Stelle
   ist das ein Argument.
+- Stellenbezeichnung und Aufgaben mit dem Arbeitszeugnis abgleichen. Weicht der Titel ab, entscheidet
+  der Kandidat; dann eine ehrliche Erklärung für das Gespräch vorbereiten, weil Personaler beides
+  nebeneinanderlegen.
 - Stichpunkte enthalten wenn möglich Umfang oder Ergebnis. Zahlen nie schätzen, sondern beim
   Kandidaten erfragen.
 - Schlüsselwörter der Zielrolle nur dort, wo sie wahr sind. Kein Keyword-Stuffing.

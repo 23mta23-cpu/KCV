@@ -52,14 +52,14 @@ def texts(path):
     yield path, "\n".join(parts), "cv"
 
 
-def check(name, text):
+def check(name, text, kind="brief"):
     findings = []
     for label, pattern in RULES:
         for m in re.finditer(pattern, text, re.I | re.M):
             start = max(0, m.start() - 40)
             findings.append((label, text[start:m.end() + 40].replace("\n", " ")))
     colons = sum(1 for line in text.split("\n")[2:] for _ in re.finditer(r":\s+[A-ZÄÖÜa-zäöü]", line))
-    if colons > 1:
+    if colons > 1 and kind == "brief":
         findings.append(("viele Doppelpunkte", f"{colons} Doppelpunkte im Fließtext"))
     triads = re.findall(r"\b\w+, \w+(?: \w+)? und \w+", text)
     if len(triads) > 2:
@@ -93,7 +93,7 @@ def main():
     total = 0
     for path in sys.argv[1:]:
         for name, text, kind in texts(path):
-            found = check(name, text)
+            found = check(name, text, kind)
             total += len(found)
             print(f"{name}: {'ok' if not found else str(len(found)) + ' Treffer'}")
             for label, snippet in found:

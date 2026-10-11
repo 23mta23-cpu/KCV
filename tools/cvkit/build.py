@@ -119,10 +119,19 @@ def photo_html(d):
             f'color:#fff;font-family:Montserrat;font-weight:800;font-size:30pt">{e(initials)}</div>')
 
 
+def link_text(text):
+    """Profil-URLs nur nach "/in/" umbrechen, nie am Bindestrich (sonst liest pdftotext "max-mustermann123" ohne Bindestrich)."""
+    t = e(text)
+    if "/in/" in t:
+        head, tail = t.split("/in/", 1)
+        return f'{head}/in/<wbr><span class="nw">{tail}</span>'
+    return t
+
+
 def design_html(d):
     contact = "".join(
         f'<li><span class="ci">{icon(c["icon"], "3.6mm")}</span>'
-        + (f'<a href="{e(c["href"])}">{e(c["text"]).replace("/in/", "/in/<wbr>")}</a>' if c.get("href") else f'<span>{e(c["text"])}</span>')
+        + (f'<a href="{e(c["href"])}">{link_text(c["text"])}</a>' if c.get("href") else f'<span>{e(c["text"])}</span>')
         + "</li>" for c in d["contact"])
     chips = "".join(f'<span class="chip">{e(s)}</span>' for s in d["skills"])
     it = "".join(f"<li>{e(x)}</li>" for x in d["it"])
@@ -144,6 +153,7 @@ def design_html(d):
 .side-block h2 {{ font-size: 9.6pt; font-weight: 700; letter-spacing: .045em; text-transform: uppercase; color: {NAVY};
                   padding-bottom: 1.6mm; margin-bottom: 2.6mm; border-bottom: .45mm solid {NAVY}; }}
 .contact {{ list-style: none; }}
+.nw {{ white-space: nowrap; }}
 .contact li {{ display: flex; align-items: center; gap: 2.2mm; font-size: 8.1pt; margin-bottom: 2.1mm; word-break: break-word; }}
 .contact .ci {{ flex: none; width: 6mm; height: 6mm; border-radius: 50%; background: {NAVY}; color: #fff;
                display: inline-flex; align-items: center; justify-content: center; }}
@@ -259,7 +269,7 @@ def ats_html(d):
 
 
 # ---------------------------------------------------------------- Anschreiben
-def letter_html(d, L, date):
+def letter_html(d, L, date, attachments=None):
     contact = "  |  ".join(e(c["text"]) for c in d["contact"][:4])
     to = "<br>".join(e(x) for x in L["to"])
     body = "".join(f"<p>{e(p)}</p>" for p in L["body"])
@@ -283,7 +293,7 @@ def letter_html(d, L, date):
 <div class="l-body"><div class="to">{to}</div><div class="date">{e(date)}</div>
 <div class="subject">{e(L['subject'])}</div><p>{e(L['greeting'])}</p>{body}
 <div class="sign">{e(L.get("closing", "Mit freundlichen Grüßen"))}<div class="name">{e(d['name'])}</div></div>
-<div class="attach">Anlagen: Lebenslauf, Zeugnisse</div></div></div></body></html>"""
+<div class="attach">{e(L.get("attachments") or attachments or "Anlagen: Lebenslauf, Zeugnisse")}</div></div></div></body></html>"""
 
 
 def main():
@@ -300,7 +310,7 @@ def main():
         letters = json.load(open(sys.argv[3], encoding="utf-8"))
         for key, L in letters["letters"].items():
             p = os.path.join(out, key + ".html")
-            open(p, "w", encoding="utf-8").write(letter_html(data, L, letters["date"]))
+            open(p, "w", encoding="utf-8").write(letter_html(data, L, letters["date"], letters.get("attachments")))
             written.append(p)
     print("\n".join(written))
 

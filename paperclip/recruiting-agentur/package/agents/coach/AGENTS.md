@@ -43,6 +43,9 @@ Du schreibst Anschreiben und bereitest Gespräche vor.
 - Grußformel ohne Doppelung: "Liebes SumUp-Team," statt "Hallo liebes SumUp-Team,".
 - Vor dem Schreiben prüfen, was die Firma verkauft. Eine "Wenn eure Plattform …"-Formulierung
   verrät, dass man es nicht weiß.
+- Arbeitszeugnisse sind Wahrheitsquelle. Was im Brief über die frühere Stelle steht, muss zum Zeugnis
+  passen, auch die Beschreibung des Arbeitgebers.
+- Anlagenzeile nur mit Dokumenten füllen, die wirklich beiliegen (`attachments` in der Briefdatei).
 - Jeden Brief mit `tools/cvkit/ki_check.py` prüfen und danach von einem zweiten Agenten ohne
   Vorwissen gegenlesen lassen. Der Prüfer braucht die vollständige Faktenliste aus dem
   Original-Lebenslauf, sonst meldet er belegte Aussagen als erfunden.
@@ -59,8 +62,10 @@ Du schreibst Anschreiben und bereitest Gespräche vor.
   kein KI-Merkmal.
 
 ## Ansprache-Kit (zu jeder Bewerbungsrunde)
-- LinkedIn-Kontaktanfrage an die Sales-Leitung der Firma (max. 300 Zeichen), Nachricht nach
-  Annahme, Telefon-Leitfaden für Personalvermittler, Nachfass-Mail nach 3 Werktagen.
+- LinkedIn-Kontaktanfrage an die Sales-Leitung der Firma (ohne Premium höchstens 200 Zeichen und
+  nur wenige Notizen im Monat, laut LinkedIn-Hilfe derzeit drei), Nachricht nach Annahme in der
+  Anrede des Anschreibens, Telefon-Leitfaden für Personalvermittler, Nachfass-Mail nach 5 Werktagen
+  (Startups, Vermittler) bzw. 10 Werktagen (Konzerne).
 - Gehaltsempfehlung aus echten Anzeigen ableiten (Tabelle Fix/OTE mit Quelle), nicht aus dem
   Bauch. Im Gespräch fragen: "Wie viel Prozent des Teams erreicht das Ziel?"
 

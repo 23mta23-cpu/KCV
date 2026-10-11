@@ -32,6 +32,8 @@ python3 finalize.py out/Max_Mustermann_Lebenslauf_Design.pdf "Lebenslauf Max Mus
 
 `photo` in der Datendatei ist optional. Ohne Foto erscheint ein Kreis mit Initialen.
 
+**Anlagenzeile:** `"attachments": "Anlagen: Lebenslauf, Zwischenzeugnis"` in der Briefdatei (für alle Briefe) oder je Brief. Standard: „Anlagen: Lebenslauf, Zeugnisse“.
+
 **Grußformel im Anschreiben:** Das Feld `closing` ist optional (Standard: „Mit freundlichen Grüßen“). Für Startups, die in der Anzeige duzen, passt `"closing": "Viele Grüße"`.
 
 ## Klingt es nach Mensch? `ki_check.py`
