@@ -1,0 +1,189 @@
+schema: "paperclip/v1"
+agents:
+  coach:
+    role: "general"
+    icon: "message-square"
+    adapter:
+      type: "claude_local"
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "ad6c3354-874f-439d-893f-d0d9a4bf98d2"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "tangerine-cobalt"
+      schemaVersion: 1
+  cv-ats:
+    role: "general"
+    icon: "file-code"
+    adapter:
+      type: "claude_local"
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "3b77be9b-c54c-40ec-99ee-ba78cd09d3c8"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "golden-hour"
+      schemaVersion: 1
+  head-of-recruiting:
+    role: "ceo"
+    icon: "crown"
+    adapter:
+      type: "claude_local"
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "89bda3c9-76ee-4f0c-b3e3-4230a8886ddc"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "orchid-peach"
+      schemaVersion: 1
+  job-scout:
+    role: "researcher"
+    icon: "search"
+    adapter:
+      type: "claude_local"
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "2dd8ee86-8d1e-4492-abaf-670ccadb8807"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "coral-current"
+      schemaVersion: 1
+schemaVersion: 7
+sidebar:
+  agents:
+    - "head-of-recruiting"
+    - "coach"
+    - "cv-ats"
+    - "job-scout"
