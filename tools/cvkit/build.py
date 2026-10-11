@@ -209,10 +209,20 @@ def ats_entries(items):
     return "".join(out)
 
 
+def ats_photo(d):
+    """Foto oben rechts im Kopf. Ein Bild hat keinen Text, die Lesereihenfolge fuer ATS bleibt gleich."""
+    if d.get("photo") and os.path.exists(d["photo"]):
+        return f'<img class="a-photo" src="{data_uri(d["photo"])}" alt="Foto {e(d["name"])}">'
+    return ""
+
+
 def ats_html(d):
     contact = "  |  ".join(e(c["text"]) for c in d["contact"][:3]) + "<br>" + "  |  ".join(e(c["text"]) for c in d["contact"][3:])
     css = BASE_CSS + f"""
-.a-band {{ background: {NAVY}; color: #fff; padding: 11mm 16mm 7mm; border-bottom: 1.1mm solid {ACCENT}; }}
+.a-band {{ position: relative; background: {NAVY}; color: #fff; padding: 11mm 16mm 7mm; border-bottom: 1.1mm solid {ACCENT}; }}
+.a-band.has-photo {{ padding-right: 54mm; }}
+.a-photo {{ position: absolute; right: 16mm; top: 7mm; width: 32mm; height: 32mm; border-radius: 50%;
+           object-fit: cover; border: .9mm solid #fff; background: #fff; }}
 .a-band h1 {{ font-size: 25pt; font-weight: 800; letter-spacing: .045em; text-transform: uppercase; }}
 .a-band .title {{ margin-top: 1.6mm; font-family: 'Montserrat'; font-weight: 600; font-size: 9.6pt; letter-spacing: .045em; text-transform: uppercase; color: #BFDDF6; }}
 .a-band .target {{ margin-top: 1.4mm; font-size: 9pt; color: #E4EFF9; }}
@@ -234,8 +244,8 @@ def ats_html(d):
     langs = ", ".join(f'{l["name"]} ({l["level"]})' for l in d["languages"])
     return f"""<!doctype html><html lang="de"><head><meta charset="utf-8"><title>{e(d['meta']['title'])}</title>
 <style>{css}</style></head><body><div class="page">
-<header class="a-band"><h1>{e(d['name'])}</h1><div class="title">{e(d['title'])}</div>
-<div class="target">{e(d['target'])}</div><div class="contact">{contact}</div></header>
+<header class="a-band{' has-photo' if ats_photo(d) else ''}"><h1>{e(d['name'])}</h1><div class="title">{e(d['title'])}</div>
+<div class="target">{e(d['target'])}</div><div class="contact">{contact}</div>{ats_photo(d)}</header>
 <div class="a-body">
 <section><h2>Profil</h2><p style="font-size:9.8pt">{e(d['profile'])}</p></section>
 <section><h2>Berufserfahrung</h2>{ats_entries(d['experience'])}</section>

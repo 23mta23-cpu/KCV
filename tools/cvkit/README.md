@@ -5,7 +5,7 @@ Erzeugt aus einer JSON-Datei drei aufeinander abgestimmte Dokumente:
 | Datei | Wofür |
 |---|---|
 | `<Name>_Lebenslauf_Design.pdf` | Zweispaltig mit Foto, Seitenleiste und Zeitleiste. Für E-Mail-Bewerbungen und Ansprechpartner. |
-| `<Name>_Lebenslauf_ATS.pdf` | Einspaltig im gleichen Look. Für Online-Portale, weil Bewerbermanagement-Systeme (ATS) sie in der richtigen Reihenfolge lesen. |
+| `<Name>_Lebenslauf_ATS.pdf` | Einspaltig im gleichen Look, mit Foto oben rechts, wenn eins angegeben ist. Für Online-Portale, weil Bewerbermanagement-Systeme (ATS) sie in der richtigen Reihenfolge lesen. |
 | `Anschreiben_*.pdf` | Anschreiben mit gleichem Kopf, gleichen Farben und Schriften. |
 
 Vorschau mit Musterdaten: `examples/vorschau_design-1.png`, `examples/vorschau_ats-1.png`, `examples/vorschau_anschreiben-1.png`.
