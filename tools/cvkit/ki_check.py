@@ -21,6 +21,9 @@ RULES = [
     ("Floskel 'ein wichtiger Grund'", r"\bein wichtiger Grund\b"),
     ("Grußformel 'Hallo liebe(s)'", r"\bHallo lieb"),
     ("Werbewort", r"\b(begeister\w*|spannend\w*|Leidenschaft\w*|leidenschaftlich\w*|Herausforderung\w*|innovativ\w*|dynamisch\w*|maßgeschneidert\w*|ganzheitlich\w*|Mehrwert\w*|nahtlos\w*|facettenreich\w*|Synergie\w*|auf Augenhöhe|hiermit bewerbe|mit großem Interesse|darüber hinaus|des Weiteren|abschließend|zusammenfassend|kurz gesagt)\b"),
+    ("Lehrsatz am Absatzende", r"\b[Dd]abei habe ich (gelernt|gesehen|erlebt)\b"),
+    ("Gleichsetzung mit 'statt'", r"\bstatt\b"),
+    ("Kurzbestätigung nach Anzeigen-Zitat", r"(^|[.!?]\s+)(Diesen Weg (suche|möchte|will)|Das trifft auf mich zu|So will ich arbeiten|Ich bin einer)\b"),
     ("Selbstlob ohne Beleg", r"\b(lerne schnell|arbeite mich schnell ein|teamfähig|belastbar|zielstrebig|kommunikationsstark)\b"),
 ]
 

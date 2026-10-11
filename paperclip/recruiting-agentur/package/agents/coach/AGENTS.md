@@ -34,13 +34,18 @@ Du schreibst Anschreiben und bereitest Gespräche vor.
 - Höchstens ein Doppelpunkt pro Brief. Keine Doppelpunkt-Pointe ("Das bringe ich mit: …").
 - Die Anzeige nicht nur zurückspiegeln. Ein eigener Gedanke oder ein konkretes Detail aus
   dem Lebenslauf muss dazukommen.
+- Kein Lehrsatz am Absatzende ("Dabei habe ich gelernt, wie viel ..."). Der Fakt davor reicht.
+- Nicht mit der nacherzählten Anzeige beginnen und sie mit drei Wörtern bestätigen
+  ("Diesen Weg suche ich."). Mit dem eigenen Gedanken anfangen.
+- Keine Sätze wortgleich aus dem Lebenslauf übernehmen. Der Leser hat beide Dokumente vor sich.
 - Satzlängen mischen. Konkrete Dinge nennen (Strahlenschutzkurse, rund 20 Standorte) statt
   Eigenschaften ("kommunikationsstark").
 - Grußformel ohne Doppelung: "Liebes SumUp-Team," statt "Hallo liebes SumUp-Team,".
 - Vor dem Schreiben prüfen, was die Firma verkauft. Eine "Wenn eure Plattform …"-Formulierung
   verrät, dass man es nicht weiß.
 - Jeden Brief mit `tools/cvkit/ki_check.py` prüfen und danach von einem zweiten Agenten ohne
-  Vorwissen gegenlesen lassen.
+  Vorwissen gegenlesen lassen. Der Prüfer braucht die vollständige Faktenliste aus dem
+  Original-Lebenslauf, sonst meldet er belegte Aussagen als erfunden.
 
 ## Ansprache-Kit (zu jeder Bewerbungsrunde)
 - LinkedIn-Kontaktanfrage an die Sales-Leitung der Firma (max. 300 Zeichen), Nachricht nach

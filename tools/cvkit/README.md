@@ -46,6 +46,8 @@ Das Skript meldet typische Merkmale von KI-Texten. Grundlage sind [Wikipedia: Si
 - Keine Aufzählungen mit fettem Stichwort am Anfang. Wikipedia nennt sie „inline-header lists“. `**…**` funktioniert technisch noch, sollte aber nicht verwendet werden.
 - Keine Dreier-Aufzählungen als Stilmittel, kein „nicht nur … sondern“, kein „nicht X, sondern Y“.
 - Keine Zusammenfassungssätze („Ich weiß also …“) und kein verstärkendes „Genau …“.
+- Kein Lehrsatz am Absatzende („Dabei habe ich gelernt, wie viel …“), keine Gleichsetzung mit „statt“.
+- Nicht mit der nacherzählten Anzeige beginnen und sie kurz bestätigen („Diesen Weg suche ich.“).
 - Höchstens ein Doppelpunkt im Fließtext eines Anschreibens.
 - Selbstlob („lerne schnell“) nur einmal und mit Beleg.
 
