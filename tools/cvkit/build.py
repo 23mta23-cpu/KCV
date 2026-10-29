@@ -17,7 +17,7 @@ FONT_DIR = os.environ.get("CVKIT_FONTS", os.path.join(HERE, "fonts"))
 NAVY = "#16365C"
 ACCENT = "#1E95D4"
 INK = "#1E2733"
-MUTED = "#5A6878"
+MUTED = "#46525F"
 SIDE_BG = "#EEF3F8"
 LINE = "#C9D6E4"
 
@@ -30,6 +30,7 @@ ICONS = {
     "user": '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
     "briefcase": '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
     "cap": '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/>',
+    "grid": '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
 }
 
 
@@ -212,11 +213,17 @@ section {{ position: relative; margin-bottom: 6.6mm; }}
 def ats_entries(items):
     out = []
     for it in items:
-        meta = "  |  ".join(x for x in [it["org"], it["dates"]] if x)
+        meta = "  |  ".join(x for x in [e(it["org"]), f'<span class="d">{e(it["dates"])}</span>' if it["dates"] else ""] if x)
         bullets = "".join(f"<li>{rich(b)}</li>" for b in it["bullets"])
-        out.append(f'<div class="a-entry"><h3>{e(it["role"])}</h3><div class="a-meta dates">{e(meta)}</div>'
+        out.append(f'<div class="a-entry"><h3>{e(it["role"])}</h3><div class="a-meta dates">{meta}</div>'
                    + (f"<ul>{bullets}</ul>" if bullets else "") + "</div>")
     return "".join(out)
+
+
+def ats_section(icon_name, title, body):
+    """Wie im Design: Icon-Kreis, Ueberschrift, Zeitleiste. Alles einspaltig, Lesereihenfolge bleibt linear."""
+    return (f'<section><div class="a-head"><span class="a-icon">{icon(icon_name, "3.9mm")}</span>'
+            f'<h2>{e(title)}</h2></div><div class="a-list">{body}</div></section>')
 
 
 def ats_photo(d):
@@ -239,9 +246,17 @@ def ats_html(d):
 .a-band .contact {{ margin-top: 3mm; font-size: 8.6pt; color: #fff; }}
 .a-body {{ padding: 6mm 16mm 0; }}
 .a-body section {{ margin-bottom: 5.4mm; }}
-.a-body h2 {{ font-size: 10.6pt; font-weight: 700; letter-spacing: .045em; text-transform: uppercase; color: {ACCENT};
-             padding-bottom: 1.2mm; margin-bottom: 2.4mm; border-bottom: .4mm solid {NAVY}; }}
-.a-entry {{ margin-bottom: 3mm; }}
+.a-head {{ display: flex; align-items: center; gap: 3mm; margin-bottom: 2.6mm; }}
+.a-icon {{ flex: none; width: 7mm; height: 7mm; border-radius: 50%; background: {NAVY}; color: #fff;
+          display: inline-flex; align-items: center; justify-content: center; }}
+.a-body h2 {{ flex: 1; font-size: 10.8pt; font-weight: 700; letter-spacing: .045em; text-transform: uppercase; color: {ACCENT};
+             padding-bottom: 1.2mm; border-bottom: .4mm solid {NAVY}; }}
+.a-list {{ position: relative; padding-left: 10mm; }}
+.a-list::before {{ content: ''; position: absolute; left: 3.3mm; top: .5mm; bottom: 1mm; width: .45mm; background: {LINE}; }}
+.a-entry {{ position: relative; margin-bottom: 3mm; }}
+.a-entry::before {{ content: ''; position: absolute; left: -8mm; top: 1.1mm; width: 2.7mm; height: 2.7mm; border-radius: 50%;
+                   background: #fff; border: .55mm solid {ACCENT}; }}
+.a-meta .d {{ font-weight: 700; color: {ACCENT}; }}
 .a-entry h3 {{ font-family: 'Lato'; font-size: 10.2pt; font-weight: 700; color: {NAVY}; }}
 .a-meta {{ font-size: 9pt; color: {MUTED}; }}
 .a-entry ul {{ margin-top: 1.2mm; padding-left: 4.4mm; }}
@@ -257,15 +272,14 @@ def ats_html(d):
 <header class="a-band{' has-photo' if ats_photo(d) else ''}"><h1>{e(d['name'])}</h1><div class="title">{e(d['title'])}</div>
 <div class="target">{e(d['target'])}</div><div class="contact">{contact}</div>{ats_photo(d)}</header>
 <div class="a-body">
-<section><h2>Profil</h2><p style="font-size:9.8pt">{e(d['profile'])}</p></section>
-<section><h2>Berufserfahrung</h2>{ats_entries(d['experience'])}</section>
-<section><h2>Ausbildung</h2>{ats_entries(d['education'])}</section>
-<section><h2>Kenntnisse</h2>
-<p class="kv"><b>Kompetenzen:</b> {e(', '.join(d['skills']))}</p>
+{ats_section('user', 'Profil', f'<p style="font-size:9.8pt">{e(d["profile"])}</p>')}
+{ats_section('briefcase', 'Berufserfahrung', ats_entries(d['experience']))}
+{ats_section('cap', 'Ausbildung', ats_entries(d['education']))}
+{ats_section('grid', 'Kenntnisse', f"""<p class="kv"><b>Kompetenzen:</b> {e(', '.join(d['skills']))}</p>
 <p class="kv"><b>IT:</b> {e(', '.join(d['it']))}</p>
 <p class="kv"><b>Sprachen:</b> {e(langs)}</p>
-<p class="kv"><b>Branche:</b> {e(', '.join(d['industry']))}</p>
-</section></div></div></body></html>"""
+<p class="kv"><b>Branche:</b> {e(', '.join(d['industry']))}</p>""")}
+</div></div></body></html>"""
 
 
 # ---------------------------------------------------------------- Anschreiben

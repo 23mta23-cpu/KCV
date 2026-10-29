@@ -23,8 +23,10 @@ werden und trotzdem nach einem Menschen klingen.
   Religion oder Staatsangehörigkeit. Ausnahme: Steht eine Familienzeit im Lebenslauf, darf
   ein Satz zur Verfügbarkeit darunter stehen (z. B. "Kinderbetreuung organisiert, Start ab
   sofort möglich"), weil er die naheliegende Frage beantwortet.
-- Immer zwei Varianten liefern: Design (zweispaltig, mit Foto, für E-Mail und Ansprechpartner)
-  und ATS (einspaltig, für Online-Portale). Werkzeug: `tools/cvkit` in diesem Repository.
+- Standard ist EIN Lebenslauf: einspaltig im Design-Stil (Kopfband mit Foto, Icon-Überschriften,
+  Zeitleiste), der zugleich ATS-sauber ist. Kandidaten wollen eine Datei, nicht zwei. Die zweispaltige
+  Design-Variante nur auf Wunsch und nie für Online-Portale: pdfminer mischt Seitenleiste und Hauptteil
+  (Kompetenzen landen zwischen den Stichpunkten eines Jobs). Werkzeug: `tools/cvkit` in diesem Repository.
 - Laufweite von Überschriften höchstens `.045em`: Bei breiterer Laufweite liest pdfminer
   "B E R U F S E R F A H R U N G" und das ATS erkennt den Abschnitt nicht.
 - Foto als JPEG mit weißem Hintergrund einbetten, schwebend rechts oben, damit der Textfluss
