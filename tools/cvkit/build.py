@@ -152,7 +152,8 @@ def design_html(d):
 .side-content {{ position: absolute; z-index: 3; top: 62mm; left: 8mm; width: 52mm; }}
 .side-block {{ margin-bottom: 6.2mm; }}
 .side-block h2 {{ font-size: 9.6pt; font-weight: 700; letter-spacing: .045em; text-transform: uppercase; color: {NAVY};
-                  padding-bottom: 1.6mm; margin-bottom: 2.6mm; border-bottom: .45mm solid {NAVY}; }}
+                  padding-bottom: 1.6mm; margin-bottom: 1.8mm; border-bottom: .45mm solid {NAVY}; }}
+/* Eng an den Inhalt: sonst bildet pdfminer eigene Textboxen und mischt Seitenleiste und Jobs. */
 .contact {{ list-style: none; }}
 .nw {{ white-space: nowrap; }}
 .contact li {{ display: flex; align-items: center; gap: 2.2mm; font-size: 8.1pt; margin-bottom: 2.1mm; word-break: break-word; }}
