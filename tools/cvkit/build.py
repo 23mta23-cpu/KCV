@@ -162,9 +162,11 @@ def design_html(d):
 .chip {{ display: inline-block; background: #fff; border: .25mm solid {LINE}; border-radius: 3mm; padding: .6mm 2.1mm;
          margin: 0 1.1mm 1.4mm 0; font-size: 8pt; line-height: 1.3; color: {INK}; }}
 .chip.soft {{ background: transparent; }}
-.plain {{ list-style: none; font-size: 8.5pt; }}
-.plain li {{ padding-left: 3mm; position: relative; margin-bottom: 1.2mm; }}
-.plain li::before {{ content: ''; position: absolute; left: 0; top: 1.9mm; width: 1.3mm; height: 1.3mm; border-radius: 50%; background: {ACCENT}; }}
+/* Kein position: relative an den li: positionierte Elemente malt Chromium zuletzt, dann stehen die
+   IT-Kenntnisse im PDF-Textstrom hinter "Branche" und ATS-Leser ordnen sie falsch zu. */
+.plain {{ list-style: disc; padding-left: 3.2mm; font-size: 8.5pt; }}
+.plain li {{ margin-bottom: 1.2mm; }}
+.plain li::marker {{ color: {ACCENT}; }}
 .langs {{ list-style: none; font-size: 8.5pt; }}
 .langs li {{ display: flex; justify-content: space-between; gap: 2mm; padding: 1.1mm 0; border-bottom: .2mm dashed {LINE}; }}
 .langs li:last-child {{ border-bottom: 0; }}
@@ -172,7 +174,7 @@ def design_html(d):
 .main {{ position: absolute; z-index: 3; top: 58mm; left: 76mm; width: 122mm; }}
 .main::before {{ content: ''; position: absolute; left: 3.6mm; top: 8mm; bottom: 4mm; width: .45mm; background: {LINE}; }}
 section {{ position: relative; margin-bottom: 6.6mm; }}
-.sec-head {{ display: flex; align-items: center; gap: 3.2mm; margin-bottom: 3mm; }}
+.sec-head {{ display: flex; align-items: center; gap: 3.2mm; margin-bottom: 1.2mm; }}
 .sec-icon {{ flex: none; width: 7.6mm; height: 7.6mm; border-radius: 50%; background: {NAVY}; color: #fff;
             display: inline-flex; align-items: center; justify-content: center; position: relative; z-index: 2; }}
 .sec-head h2 {{ flex: 1; font-size: 11.2pt; font-weight: 700; letter-spacing: .045em; text-transform: uppercase;
