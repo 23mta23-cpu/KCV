@@ -30,6 +30,7 @@ ICONS = {
     "user": '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
     "briefcase": '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
     "cap": '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/>',
+    "book": '<path d="M4 4h6a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4z"/><path d="M20 4h-6a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6z"/>',
     "grid": '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
 }
 
@@ -137,7 +138,7 @@ def design_html(d):
     chips = "".join(f'<span class="chip">{e(s)}</span>' for s in d["skills"])
     it = "".join(f"<li>{e(x)}</li>" for x in d["it"])
     langs = "".join(f'<li><b>{e(l["name"])}</b><span>{e(l["level"])}</span></li>' for l in d["languages"])
-    industry = "".join(f'<span class="chip soft">{e(s)}</span>' for s in d["industry"])
+    industry = "".join(f'<span class="chip soft">{e(s)}</span>' for s in d.get("industry", []))
     css = BASE_CSS + f"""
 .band {{ position: absolute; inset: 0 0 auto 0; height: 50mm; background: {NAVY}; z-index: 2; }}
 .band::after {{ content: ''; position: absolute; left: 68mm; right: 0; bottom: 0; height: 1.1mm; background: {ACCENT}; }}
@@ -171,7 +172,7 @@ def design_html(d):
 .langs li {{ display: flex; justify-content: space-between; gap: 2mm; padding: 1.1mm 0; border-bottom: .2mm dashed {LINE}; }}
 .langs li:last-child {{ border-bottom: 0; }}
 .langs span {{ color: {MUTED}; }}
-.main {{ position: absolute; z-index: 3; top: 58mm; left: 76mm; width: 122mm; }}
+.main {{ position: absolute; z-index: 3; top: 57mm; left: 76mm; width: 122mm; }}
 .main::before {{ content: ''; position: absolute; left: 3.6mm; top: 8mm; bottom: 4mm; width: .45mm; background: {LINE}; }}
 section {{ position: relative; margin-bottom: 6.6mm; }}
 .sec-head {{ display: flex; align-items: center; gap: 3.2mm; margin-bottom: 1.2mm; }}
@@ -202,12 +203,13 @@ section {{ position: relative; margin-bottom: 6.6mm; }}
 {side_block('Kompetenzen', chips)}
 {side_block('IT-Kenntnisse', f'<ul class="plain">{it}</ul>')}
 {side_block('Sprachen', f'<ul class="langs">{langs}</ul>')}
-{side_block('Branche', industry)}
+{side_block('Branche', industry) if d.get('industry') else ''}
 </aside>
 <main class="main">
 {section('user', 'Profil', f'<p class="lead">{e(d["profile"])}</p>')}
 {section('briefcase', 'Berufserfahrung', entries_html(d['experience']))}
 {section('cap', 'Ausbildung', entries_html(d['education']))}
+{section('book', 'Weiterbildung', entries_html(d['training'])) if d.get('training') else ''}
 </main>
 </div></body></html>"""
 
@@ -278,10 +280,11 @@ def ats_html(d):
 {ats_section('user', 'Profil', f'<p style="font-size:9.8pt">{e(d["profile"])}</p>')}
 {ats_section('briefcase', 'Berufserfahrung', ats_entries(d['experience']))}
 {ats_section('cap', 'Ausbildung', ats_entries(d['education']))}
+{ats_section('book', 'Weiterbildung', ats_entries(d['training'])) if d.get('training') else ''}
 {ats_section('grid', 'Kenntnisse', f"""<p class="kv"><b>Kompetenzen:</b> {e(', '.join(d['skills']))}</p>
 <p class="kv"><b>IT:</b> {e(', '.join(d['it']))}</p>
 <p class="kv"><b>Sprachen:</b> {e(langs)}</p>
-<p class="kv"><b>Branche:</b> {e(', '.join(d['industry']))}</p>""")}
+{f'<p class="kv"><b>Branche:</b> {e(", ".join(d["industry"]))}</p>' if d.get('industry') else ''}""")}
 </div></div></body></html>"""
 
 
