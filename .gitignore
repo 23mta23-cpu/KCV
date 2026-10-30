@@ -1,2 +1,16 @@
 __pycache__/
 *.pyc
+
+# Bewerbungsunterlagen und Fotos nie ins öffentliche Repo (gehören ins Google Drive)
+*.pdf
+*.doc
+*.docx
+*.odt
+*.jpg
+*.jpeg
+*.heic
+out/
+
+# Laufzeitdateien von Plugins; nur die Projekteinstellungen werden geteilt
+.claude/*
+!.claude/settings.json
