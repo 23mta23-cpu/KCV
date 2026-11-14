@@ -54,12 +54,18 @@ Jede Aussage trägt eines von vier Etiketten.
 | ANNAHME | Plausible Praxisregel ohne harten Beleg. |
 | SPEKULATION | Nicht ausreichend belegt. |
 
+Ein FAKT mit dem Zusatz S oder "sekundär" ist nicht am Original geprüft. Vor der Verwendung in einer
+Bewerbung oder im Gespräch am Original prüfen.
+
 Bei Quellen steht dabei, ob es eine Primärquelle ist (Studie, Befragung mit Methodik, Gesetz,
 Originalbuch, offizielle Dokumentation) oder eine Sekundärquelle (Blog, Ratgeber,
 Anbieter-Marketing, das andere zitiert).
 
 ### Grenzen dieser Recherche
 
+- Umfang: sechs Themenbereiche, rund 100 Websuchen am 14.11.2026. Gelesen wurden überwiegend
+  Zusammenfassungen der Suche, nur wenige Originale. Die Lücken stehen in Abschnitt 8 unter
+  "Offene Punkte".
 - Die Websuche liefert vor allem US-Quellen. Aussagen zum DACH-Raum sind dort markiert, wo sie
   aus deutschsprachigen Quellen stammen.
 - Viel Vertriebswissen ist Anbieter-Marketing. Benchmarks von Softwareanbietern und Investoren
@@ -94,7 +100,7 @@ Satzbau
 8. Dreierketten ("schnell, flexibel und zuverlässig"). FAKT, Quelle 1 (Abschnitt "Rule of three").
 9. Gedankenstriche: Wikipedia nennt Em-Dashes als Merkmal, meist mit Leerzeichen, aber nur in Kombination nutzbar; neuere Modelle unterdrücken sie, sodass die Lage sich ändert. t3n nennt sie für ChatGPT, Claude und Gemini. FAKT, Quelle 1 und 3. Im Deutschen ist der Halbgeviertstrich mit Leerzeichen als Gedankenstrich normales Schriftdeutsch, das Merkmal ist hier schwächer. SCHLUSSFOLGERUNG.
 10. Rhetorische Frage mit Sofortantwort, Doppelpunkt-Pointen ("Das Ergebnis: ..."). ANNAHME. In der gelesenen Wikipedia-Liste ist dafür kein eigener Beleg geprüft.
-11. Gleichförmige Satz- und Absatzlängen. t3n nennt es als Merkmal. S, Quelle 3. Belastbarkeit siehe B2.
+11. Gleichförmige Satz- und Absatzlängen. t3n nennt es als Merkmal. S, Quelle 3. Belastbarkeit siehe 1.B Nr. 2.
 
 Struktur
 
@@ -111,9 +117,22 @@ Inhalt
 
 1. Perplexity und Burstiness: Perplexity misst, wie vorhersagbar ein Text für ein Sprachmodell ist; Burstiness, wie stark diese Werte im Dokument schwanken (grob: abwechselnd lange und kurze Sätze). Eingeführt von GPTZero (Edward Tian) 2023. FAKT, Quelle 5, P (Anbieter) bzw. S in Zusammenfassung.
 2. Belastbarkeit: Nach der Zusammenfassung seiner eigenen Seite nutzt GPTZero seit Herbst 2023 nicht mehr nur diese beiden Werte, sondern ein Deep-Learning-Modell. Das ist nicht auf der Originalseite gegengeprüft. Liang et al. führen ihre Fehlalarme gegen Nichtmuttersprachler auf niedrige Perplexität zurück (Quelle 6, P). SCHLUSSFOLGERUNG: Kurze, einfache, korrekte Sätze lösen Alarme aus, ohne dass KI im Spiel ist. Burstiness taugt als Schreibhilfe (Rhythmus variieren), nicht als Beweis.
-3. Rhythmus, Konkretes, präzise Verben, Subtext, eigene Meinung, ungewöhnliche Details. ANNAHME. Das ist Praxiswissen aus der Stillehre (siehe unten) und das Gegenstück zu A14 und A15; eine Studie, die diese Merkmale als Erkennungsmerkmal menschlicher Bewerbungen misst, wurde nicht gefunden.
+3. Rhythmus, Konkretes, präzise Verben, Subtext, Tonalität, eigene Meinung, ungewöhnliche Details: einzeln mit Beispiel im nächsten Unterabschnitt. ANNAHME. Das ist Praxiswissen aus der Stillehre (siehe unten) und das Gegenstück zu 1.A Nr. 14 und 15; eine Studie, die diese Merkmale als Erkennungsmerkmal menschlicher Bewerbungen misst, wurde nicht gefunden.
 4. Wikipedia nennt als menschliche Signale: Text vor dem 30.11.2022 entstanden (KI sicher ausgeschlossen), Fähigkeit, eigene Entscheidungen zu erklären, bestimmte Satzkonstruktionen, die Menschen häufiger nutzen. FAKT, Quelle 1. Übertragen auf Bewerbungen: Jede Aussage im Anschreiben muss im Gespräch erklärbar sein. SCHLUSSFOLGERUNG.
 5. Bewusste Imperfektion: Es fand sich kein Beleg, dass absichtlich eingebaute Fehler Texte menschlicher wirken lassen oder Recruiter überzeugen. Wikipedia führt "perfekte Grammatik" ausdrücklich als ineffektiven Indikator, der sogar das Gegenteil anzeigen kann (viele Menschen schreiben sehr sauber). FAKT, Quelle 1. SCHLUSSFOLGERUNG: Fehler einbauen ist riskant und unbelegt. Persönliche Details und eigene Wortwahl wirken, nicht Tippfehler.
+
+### Die Merkmale im Einzelnen
+
+Alle Einträge sind ANNAHME: Praxisregeln aus der Stillehre und aus den Regeln des Coachs, ohne Messung an Bewerbungen. Die Beispiele sind erfunden.
+
+1. Rhythmus (Burstiness als Schreibhilfe). Neben mittellangen Sätzen steht ein sehr kurzer, ab und zu ein langer. Gleich lange Sätze wirken wie vom Band. Beispiel: "Ich habe 40 Kunden im Mittelstand betreut. Die meisten kannte ich persönlich. Als der größte kündigen wollte, bin ich hingefahren und habe mit dem IT-Leiter die Störungen der letzten Monate durchgesehen." Prüfung: `ki_check.py` zeigt die Streuung der Satzlängen.
+2. Konkrete Beispiele statt abstrakter Behauptungen. Eine Eigenschaft wird durch eine Handlung mit Umfang ersetzt. Vorher: "Ich bin kommunikationsstark." Nachher: "Ich habe jede Woche rund 60 Firmen angerufen."
+3. Präzise, schlichte Verben. Das Verb sagt, was getan wurde: verkauft, angerufen, verhandelt, geschrieben. Nicht "war verantwortlich für die Durchführung von", nicht "fungierte als". Vorher: "Im Rahmen meiner Tätigkeit erfolgte die Betreuung von Bestandskunden." Nachher: "Ich habe 40 Bestandskunden betreut."
+4. Subtext. Ein Satz teilt etwas mit, ohne es zu behaupten. "Als der Kunde kündigen wollte, bin ich hingefahren" zeigt Einsatz, das Wort "engagiert" braucht es nicht. Regel: Eigenschaft streichen, Handlung stehen lassen. Der Leser zieht den Schluss selbst und glaubt ihn deshalb eher (3.A Nr. 7).
+5. Glaubwürdige Tonalität. Ruhig und sachlich, in der Anrede der Anzeige, ohne Superlativ und ohne Unterwürfigkeit. Der Text klingt so, wie der Kandidat am Telefon spricht. Probe: laut vorlesen. Wer stolpert, hat zu gestelzt geschrieben. Vorher: "Mit großer Begeisterung würde ich mich über die Möglichkeit freuen." Nachher: "Ich würde die Stelle gern mit Ihnen besprechen."
+6. Ecken und Kanten. Eine eigene Einschätzung, ein Grund, eine Vorliebe oder eine eingestandene Grenze. Beispiele: "Kaltakquise liegt mir mehr als Bestandspflege." "Preisverhandlungen habe ich bisher nur begleitet." KI-Texte wägen ab und legen sich nicht fest.
+7. Ungewöhnliche Details. Eine Zahl, ein System, ein Ort oder ein Moment, den nur der Kandidat kennt. Das ist das stärkste Signal (Regel des Coachs). Fehlt es, beim Kandidaten nachfragen, nie erfinden.
+8. Bewusste Imperfektion, richtig verstanden. Erlaubt ist, die eigene, unpolierte Formulierung des Kandidaten stehen zu lassen, auch wenn sie schlichter ist als eine geglättete Fassung. Nicht erlaubt sind eingebaute Rechtschreib- oder Grammatikfehler. Sie bleiben ein Warnsignal (4.C).
 
 ### 1.C KI-Detektoren und Datei-Spuren
 
@@ -125,7 +144,7 @@ Inhalt
 6. Für Bewerbungen: Die Recherche ergab keine belastbare Angabe, wie viele deutsche Recruiter Detektoren einsetzen. Entscheidend ist deshalb der menschliche Leser, und der liegt nach Quelle 1 selbst nicht zuverlässig richtig. SCHLUSSFOLGERUNG.
 7. Content Credentials (C2PA): Manifeste können in Bildern, Video, Audio und PDF stehen und enthalten ein Feld digitalSourceType zur Kennzeichnung KI-erzeugter Inhalte. Fehlen sie, beweist das keine menschliche Herkunft; Metadaten lassen sich entfernen. FAKT, Quelle 9 (P, C2PA) und Zusammenfassungen. Prüfwerkzeug: c2patool. Eigene Messung an einer Datei (11/2026): Ein über ChatGPT erzeugtes PDF enthielt ein C2PA-Manifest. Es nannte ChatGPT als Ersteller und stufte den Inhalt als KI-erzeugt ein. Die Word-Datei aus demselben Vorgang enthielt keines. FAKT für diese eine Datei, nicht verallgemeinerbar. Prüfung: `grep -a -c -i c2pa datei.pdf` muss 0 ergeben.
 8. PDF-Metadaten (Felder Producer, Creator, Author, Titel) können Werkzeug oder Pfad verraten. ANNAHME aus allgemeinem Wissen, nicht in der Recherche geprüft. Praxisregel: Vor dem Versand Metadaten ansehen und bereinigen.
-9. Unsichtbare Unicode-Zeichen (Zero-Width-Zeichen, schmale geschützte Leerzeichen) als KI-Wasserzeichen: Dafür fand sich kein belastbarer Beleg. SPEKULATION. Technische Reste wie utm_source=chatgpt.com in Links sind dagegen belegt (A16).
+9. Unsichtbare Unicode-Zeichen (Zero-Width-Zeichen, schmale geschützte Leerzeichen) als KI-Wasserzeichen: Dafür fand sich kein belastbarer Beleg. SPEKULATION. Technische Reste wie utm_source=chatgpt.com in Links sind dagegen belegt (1.A Nr. 16).
 10. Typografische Anführungszeichen: Wikipedia führt gerade Anführungszeichen als menschliches Gegenstück, krumme als KI-Hinweis (Quelle 1). Im Deutschen setzen Word und Mac typografische Zeichen („ “) automatisch. SCHLUSSFOLGERUNG: im Deutschen kaum aussagekräftig, ebenso der Halbgeviertstrich.
 
 ### 1.D Reaktion von Recruitern
@@ -160,16 +179,16 @@ Alle Angaben sind Umfragen von Anbietern mit Eigeninteresse. Vergleichbar sind s
 
 ### 1.F Strittiges und Mythen
 
-1. "Burstiness und Perplexity erkennen KI sicher": nicht belegt, Anbieter selbst wich davon ab (B2). Mythos.
-2. "Absichtliche Fehler machen menschlich": kein Beleg gefunden. Mythos bzw. SPEKULATION (B5).
-3. "Perfekte Grammatik ist ein KI-Zeichen": von Wikipedia ausdrücklich verneint (B5).
-4. "Em-Dash ist der sichere Tell": nur in Kombination, Modelle ändern sich, im Deutschen Normalschrift (A9, C10).
-5. "Typografische Anführungszeichen verraten KI": im Deutschen schwach (C10).
-6. "Unsichtbare Zeichen als Wasserzeichen in ChatGPT-Text": nicht belegt (C9).
-7. "Fehlende C2PA-Daten beweisen menschliche Herkunft": falsch, Daten sind entfernbar (C7).
+1. "Burstiness und Perplexity erkennen KI sicher": nicht belegt, Anbieter selbst wich davon ab (1.B Nr. 2). Mythos.
+2. "Absichtliche Fehler machen menschlich": kein Beleg gefunden. Mythos bzw. SPEKULATION (1.B Nr. 5).
+3. "Perfekte Grammatik ist ein KI-Zeichen": von Wikipedia ausdrücklich verneint (1.B Nr. 5).
+4. "Em-Dash ist der sichere Tell": nur in Kombination, Modelle ändern sich, im Deutschen Normalschrift (1.A Nr. 9, 1.C Nr. 10).
+5. "Typografische Anführungszeichen verraten KI": im Deutschen schwach (1.C Nr. 10).
+6. "Unsichtbare Zeichen als Wasserzeichen in ChatGPT-Text": nicht belegt (1.C Nr. 9).
+7. "Fehlende C2PA-Daten beweisen menschliche Herkunft": falsch, Daten sind entfernbar (1.C Nr. 7).
 8. "Recruiter erkennen KI in Sekunden": nur Selbsteinschätzung in Umfragen (TopResume, CV Genius); Wikipedia zitiert eine Studie, wonach Menschen nicht besser als Zufall raten (Quelle 1).
-9. "delve, nahtlos, eintauchen als Beweis": Wortlisten veralten, deutsche Liste unbelegt (A2, A5).
-10. Oft zitierte Zahlen "80 % der Recruiter lehnen KI ab": nicht bis zur Primärquelle zurückverfolgt (D9). StepStones 80 % bezeichnet Bewerbungsqualität, nicht KI-Ablehnung.
+9. "delve, nahtlos, eintauchen als Beweis": Wortlisten veralten, deutsche Liste unbelegt (1.A Nr. 2, 1.A Nr. 5).
+10. Oft zitierte Zahlen "80 % der Recruiter lehnen KI ab": nicht bis zur Primärquelle zurückverfolgt (1.D Nr. 9). StepStones 80 % bezeichnet Bewerbungsqualität, nicht KI-Ablehnung.
 
 ### Stillehre gegen KI-Ton
 
@@ -207,17 +226,17 @@ Beleglage: 14 Websuchen. Vollständig gelesen wurden die Greenhouse-Dokumentatio
 
 1. Zuschnitt auf die Stelle statt Serienbrief. Begründung: Recruiter erkennen Serienbriefe sofort, ein Serienbrief kann zum Ausschluss führen. ANNAHME (Praxisregel); gestützt durch Joblift-Befragung, nach der gut jeder Fünfte denselben Brief nur mit anderer Adresse und Ansprechperson nutzt (Joblift, 1.058 Bewerber, Jahr nicht geprüft; S über Suchtreffer). Quelle: https://t3n.de/news/?p=1190321 (S).
 2. Belege statt Behauptungen. "Umsatz 1,2 Mio. EUR, 118 % der Quote" schlägt "erfolgreich im Vertrieb". SCHLUSSFOLGERUNG aus Ziel der Sichtung (Recruiter suchen Qualifikation; 57 % nennen sie als wichtigstes Kriterium, StepStone 2025, 700 Recruiter, P als Umfrage, über Ratgeberseite): https://www.stepstone.at/Karriere-Bewerbungstipps/die-3-haufigsten-bewerbungsmythen/
-3. Klare Struktur, schnell erfassbar. Recruiter scannen nach Überschriften, Daten, Jobtiteln (StepStone-Eye-Tracking, laut Suchtreffer; Primärstudie nicht gelesen). FAKT mit Vorbehalt. Der Wert "43 Sekunden" auf iqb.de stammt aus einer Sekundärdarstellung, Methodik ungeprüft: https://iqb.de/karrieremagazin/bewerbung/darauf-achten-personaler-wirklich-der-lebenslauf/ (S).
-4. Fehlerfreiheit. Rechtschreibfehler führen laut Befragungen häufig zur Absage (Zahlen siehe Abschnitt H). Quellen sind Karrierebibel/iqb, also S.
+3. Klare Struktur, schnell erfassbar. Recruiter scannen nach Überschriften, Daten, Jobtiteln (StepStone-Eye-Tracking, laut Suchtreffer; Primärstudie nicht gelesen). ANNAHME, die Primärstudie wurde nicht gelesen. Der Wert "43 Sekunden" auf iqb.de hat keine auffindbare Primärquelle und ist SPEKULATION (4.A Nr. 7): https://iqb.de/karrieremagazin/bewerbung/darauf-achten-personaler-wirklich-der-lebenslauf/ (S).
+4. Fehlerfreiheit. Rechtschreibfehler führen laut Befragungen häufig zur Absage (Zahlen siehe 2.H). Quellen sind Karrierebibel/iqb, also S.
 5. Roter Faden: Anzeige, Lebenslauf und Anschreiben erzählen dieselbe Geschichte. ANNAHME, kein Beleg gefunden.
 6. Eigeninitiative: Anruf vorab, Ansprache der Fachabteilung, Empfehlung. Nur etwa jedes dritte der Top-500-Unternehmen spricht vor der Bewerbung mit Kandidaten; bei 45 % fehlt eine Telefonnummer der Personalabteilung (Untersuchung mit 1.728 Initiativbewerbungen, Jahr nicht geprüft; S über Suchtreffer). Eine belegte Erfolgsquote für den Anruf wurde nicht gefunden. Etikett: ANNAHME. Quelle: https://karrierebibel.de/anruf-vor-bewerbung/ (S).
 7. Empfehlung erhöht die Chancen. Glassdoor-Auswertung: Annahmewahrscheinlichkeit steigt um knapp 7 % bei Empfehlung (Aussage über Annahme, nicht Einladung; Original nicht gelesen). Vendor-Daten (ERIN, 2024, über 1,1 Mio. Empfehlungen): etwa 1 von 10 Empfehlungen wird Einstellung. Das ist Anbieter-Marketing. Etikett: SCHLUSSFOLGERUNG, schwach belegt. Quelle: https://www.noon.ai/blog/articles/360-employee-referral-statistics-2026 (S).
 
-### 2.B Einstiege
+### 2.B Einstiege (Hooks)
 
 Tragen (alles ANNAHME, Praxisregeln; kein Test belegt eine Variante als überlegen):
 
-- Bezug zu einem konkreten Anlass oder Problem der Firma: "Musterfirma baut den Vertrieb für Cloud-Security in der DACH-Region aus. Ich habe als Max Mustermann bei Musterdata in zwei Jahren 14 Neukunden in dieser Nische gewonnen."
+- Bezug zu einem konkreten Anlass oder Problem der Firma: "Musterfirma baut den Vertrieb für Cloud-Security in der DACH-Region aus. Ich habe bei Musterdata in zwei Jahren 14 Neukunden in dieser Nische gewonnen."
 - Ergebnis zuerst: "Im letzten Jahr habe ich 130 % meines Neukundenziels erreicht. Genau diese Neukundenarbeit beschreibt Ihre Anzeige."
 - Nach Telefonat: "Danke für das Gespräch am Dienstag. Wie besprochen sende ich Ihnen meine Unterlagen für die Stelle Account Executive."
 - Empfehlung: "Frau Beispiel aus Ihrem Team hat mir Ihre Stelle empfohlen, weil ich ähnliche Mittelstandskunden betreue."
@@ -232,7 +251,7 @@ Schaden:
 
 Etikett für die Schadensliste: ANNAHME. Mehrere Ratgeber sagen dasselbe, eine Studie wurde nicht gefunden. Die StepStone-Aussage "kurz, konkret, stellenbezogen" gilt als Beleg für die Richtung: https://www.stepstone.at/Karriere-Bewerbungstipps/die-3-haufigsten-bewerbungsmythen/ (S).
 
-### 2.C Nutzenargumentation und Belegführung
+### 2.C Nutzenargumentation (Value Proposition) und Belegführung (Zahlen, Daten, Fakten)
 
 Formeln (alle drei sind Ordnungshilfen; ihre Wirkung ist nicht in Studien belegt, Etikett ANNAHME):
 
@@ -298,7 +317,7 @@ Praxisregeln (SCHLUSSFOLGERUNG aus Greenhouse-Doku plus ANNAHME für andere Syst
 
 ### 2.H Strittiges und Mythen
 
-- "75 % vom ATS aussortiert": unbelegt, siehe D.
+- "75 % vom ATS aussortiert": unbelegt, siehe 2.D.
 - "Ohne Keywords keine Chance": Greenhouse nennt als Ablehnungsmechanismus Arbeitgeberregeln, nicht Keyword-Scores (S über Anbieter); für andere Systeme gibt es keine unabhängige Prüfung. SPEKULATION, ob einzelne ATS Scores sichtbar verwenden.
 - Zweispaltig: Quellen widersprechen sich; Greenhouse listet Spalten als Parse-Risiko (FAKT, P). Sicherer ist einspaltig.
 - PDF vs. DOCX: keine verlässliche systemübergreifende Aussage.
@@ -364,6 +383,17 @@ Beleglage: Die Websuche lieferte meist nur Abstracts und Sekundärtexte, Volltex
 
 14. Diskriminierung nach Name, Foto, Herkunft. Kaas, Manger 2012, German Economic Review: 528 Praktikumsanzeigen, deutscher Name brachte rund 14 % mehr Rückmeldungen, bei kleinen Firmen rund 24 %; bei Bewerbungen mit guter Referenz zur Persönlichkeit verschwand der Unterschied. Weichselbaumer 2016 (IZA DP 10217): Frauen mit türkischem Namen und Kopftuch erhielten nur 4,2 % Rückmeldungen. Koopmans, Veit, Yemane (WZB 2018, Ethnic and Racial Studies 2019): etwa 6.000 Stellen, 35 Gruppen; Diskriminierung stärker bei größerer Wertedistanz, eher "Geschmack" als Statistik. FAKT. Ableitung für Bewerber: Zusätzliche Information (Referenz, Zertifikat) verringerte die Lücke bei Kaas/Manger. SCHLUSSFOLGERUNG. Quellen: https://ideas.repec.org/a/bla/germec/v13y2012i1p1-20.html (Katalog, primär), https://newsroom.iza.org/en/archive/research/discrimination-against-female-migrants-wearing-a-headscarf (Pressetext, sekundär), https://econpapers.repec.org/RePEc:zbw:espost:205261 (Abstract, primär).
 
+### Die sechs meistgenannten Hebel im Einzelnen
+
+Die Anwendung auf Bewerbungstexte ist SCHLUSSFOLGERUNG, bei Reziprozität und Social Proof ANNAHME, weil ein Beleg aus der Personalauswahl fehlt. Jeder Hebel wirkt nur mit wahren Angaben. Die Beispiele sind erfunden.
+
+1. Halo-Effekt. Das stärkste belegbare Merkmal steht oben: Rang, bekannter Arbeitgeber, Zertifikat. Der Kopf des Dokuments ist fehlerfrei. Beispiel: "Platz 2 von 9 im Team" als erster Stichpunkt der Station.
+2. Social Proof. Dritte bestätigen die Leistung: Zeugnisformulierung, Referenz, Empfehlung aus dem Team, Auszeichnung. Beispiel: "Frau Beispiel aus Ihrem Vertrieb hat mir die Stelle empfohlen." Nur echte Bezüge, Kundennamen nur mit Erlaubnis.
+3. Loss Aversion. Der Entscheider fürchtet die Fehlbesetzung. Der Text senkt dieses Risiko: klare Verfügbarkeit, stimmige Daten, prüfbare Zahlen, angebotene Referenz. Beispiel: "Mein früherer Vertriebsleiter steht für eine Auskunft bereit." Kein künstlicher Zeitdruck.
+4. Authority Bias. Belege mit Gewicht: Abschluss, Zertifikat mit Aussteller und Jahr, namhafter Arbeitgeber, richtig verwendete Fachbegriffe. Beispiel: "Zertifikat Musteranbieter Sales Professional, 2025." Titel nie größer machen als im Vertrag.
+5. Reziprozität. In der direkten Ansprache zuerst etwas geben: eine Beobachtung oder eine Frage, die zeigt, dass man sich mit der Firma befasst hat. Beispiel: "Ich habe Ihr Webinar vom Dienstag gesehen und kenne zwei der Einwände aus eigenen Kundengesprächen." Keine Belehrung über die Firma (3.C).
+6. Cognitive Ease. Kurze Sätze, bekannte Wörter, gewohnte Überschriften, eine gut lesbare Schrift. Beispiel: "Ich verkaufe erklärungsbedürftige Software an IT-Leiter" und nicht "Akquisition komplexer Lösungsportfolios".
+
 ### 3.B Vertrauen und Kompetenz im Text
 
 Alle Beispiele sind erfunden. Die Textmittel sind aus 3.A abgeleitet, also SCHLUSSFOLGERUNG.
@@ -373,7 +403,7 @@ Alle Beispiele sind erfunden. Die Textmittel sind aus 3.A abgeleitet, also SCHLU
 - Schlichte Sprache. Vorher: "Ich verfüge über eine ausgeprägte Expertise in der Akquisition komplexer Lösungsportfolios." Nachher: "Ich verkaufe erklärungsbedürftige Software an IT-Leiter."
 - Eigener Anteil. Vorher: "Wir haben den Umsatz verdoppelt." Nachher: "Das Team hat den Umsatz verdoppelt. Mein Anteil: 4 der 9 Großabschlüsse, ich habe die Angebote geführt, der Technikpartner die Demos."
 - Ruhiger Ton, keine Superlative. Vorher: "Ich bin der ideale Kandidat und der beste Vertriebler." Nachher: "Meine Stärke ist der Einstieg bei Fachbereichen; die Preisverhandlung lerne ich noch."
-- Zahlen müssen stimmen und mit dem Lebenslauf und LinkedIn übereinstimmen (siehe E).
+- Zahlen müssen stimmen und mit dem Lebenslauf und LinkedIn übereinstimmen (siehe 3.E).
 
 ### 3.C Augenhöhe
 
@@ -383,7 +413,7 @@ Alle Beispiele sind erfunden. Die Textmittel sind aus 3.A abgeleitet, also SCHLU
 
 ### 3.D Einwände vorwegnehmen
 
-Muster: Fakt, Grund in einem Halbsatz, Beleg oder Nutzen, weiter. Keine Rechtfertigung, kein Entschuldigen. Forschungsstand: Stealing Thunder (A12) stützt das Selbstnennen; Laborbefund aus Gerichtssimulation, Übertragung SCHLUSSFOLGERUNG. Dass es im Vertrieb nutzt, ist ANNAHME.
+Muster: Fakt, Grund in einem Halbsatz, Beleg oder Nutzen, weiter. Keine Rechtfertigung, kein Entschuldigen. Forschungsstand: Stealing Thunder (3.A Nr. 12) stützt das Selbstnennen; Laborbefund aus Gerichtssimulation, Übertragung SCHLUSSFOLGERUNG. Dass es im Vertrieb nutzt, ist ANNAHME.
 
 - Lücke: "Von 03/2023 bis 08/2023 Auszeit wegen Pflege eines Angehörigen. Seit 09/2023 wieder im Vertrieb, 2024 Quote 104 %."
 - Kurze Station: "Die Station dauerte 5 Monate, weil die Vertriebseinheit aufgelöst wurde. Ergebnis in der Zeit: 6 Abschlüsse."
@@ -445,7 +475,7 @@ Beleglage: Websuche, Ergebnisse überwiegend als Zusammenfassungen. Das Original
 5. Praktische Folge: Titel, Firma, Zeitraum und ein Ergebniszahl-Satz pro Station müssen ohne Lesen von Absätzen erfassbar sein; zwei Seiten sind bei Berufserfahrung zulässig, die zweite Seite wird laut Studie bei Interesse ähnlich lange gelesen. SCHLUSSFOLGERUNG. Quelle: hrdive.com (S).
 6. Neuere Behauptung "11,2 Sekunden (2025)" ist nur in Blogs gefunden, Studie nicht verifiziert. SPEKULATION.
 7. DACH-Gegenstück: Ein Artikel von iqb.de nennt "43 Sekunden für den ersten Eindruck". Die Primärquelle der Zahl wurde nicht ermittelt. Nicht zitieren, bevor sie geprüft ist. SPEKULATION. Quelle: iqb.de (S).
-8. Für Bamberg (Recruiting Trends, Weitzel u. a.) ließ sich keine Kennzahl zur Lebenslauf-Sichtdauer finden. Die Studie liefert vor allem Daten zu Digitalisierung und Automatisierung des Recruitings (siehe H). FAKT (Lücke der Recherche).
+8. Für Bamberg (Recruiting Trends, Weitzel u. a.) ließ sich keine Kennzahl zur Lebenslauf-Sichtdauer finden. Die Studie liefert vor allem Daten zu Digitalisierung und Automatisierung des Recruitings (siehe 4.H). FAKT (Lücke der Recherche).
 
 ### 4.B Ablauf der Vorauswahl und Kennzahlen
 
@@ -489,7 +519,7 @@ Beleglage: Websuche, Ergebnisse überwiegend als Zusammenfassungen. Das Original
    - Nicht: Schuld beim Ex-Arbeitgeber, Details zu Streit.
    Kurz im Lebenslauf aufführen; ein Weglassen lässt eine Lücke, die nachgefragt wird. ANNAHME.
 
-### 4.F Wechselmotive, Cultural Fit, roter Faden
+### 4.F Wechselmotive, Cultural Fit, roter Faden (Stringenz)
 
 1. Gute Motive: Aufgabenerweiterung, Produkt- oder Marktwechsel mit Bezug zur Zielstelle, Verantwortung, Unternehmensentwicklung, Standortwechsel, Vergrößerung des Kundenkreises. ANNAHME.
 2. Warnsignale: Schlechtreden des alten Arbeitgebers, "nur mehr Geld", Wechsel bei erstem Gegenwind. ANNAHME.
@@ -549,7 +579,7 @@ Beleglage: Websuche, Ergebnisse überwiegend als Zusammenfassungen. Das Original
 - https://www.ere.net/articles/is-the-6-second-resume-scan-a-myth (Kritik an der Studie, S)
 - https://csuglobal.edu/sites/default/files/blog-files/theladders-eyetracking-studyc2.pdf und https://www.bu.edu/com/files/2018/10/TheLadders-EyeTracking-StudyC2.pdf (Original-Studie 2018, P; Inhalt nicht abgerufen)
 - https://www.dgfp.de/uploads/documents/FINAL-Recruiting-Struktur-BenchmarkStudie-2025.pdf (Benchmark HR-Kennzahlen, P)
-- https://ta.smartrecruiters.com/rs/664-NIC-529/images/Germany Recruiting Benchmarks 2025 Report DE.pdf?version=0 (Time-to-Hire Deutschland, Anbieter, S)
+- https://ta.smartrecruiters.com/rs/664-NIC-529/images/Germany%20Recruiting%20Benchmarks%202025%20Report%20DE.pdf?version=0 (Time-to-Hire Deutschland, Anbieter, S)
 - https://chemanager-online.com/de/news/jobcluster-recruiting-trends-2025-umfrage (Bericht zu Jobcluster 2025, S)
 - https://www.bitkom.org/Presse/Presseinformation/KI-Einzug-in-Personalabteilungen (KI im Personalwesen, P)
 - https://www.datev-magazin.de/nachrichten-steuern-recht/wirtschaft/die-bewerbung-laeuft-fast-ueberall-schon-digital-aber-meistens-noch-ohne-ki-137629 (Bericht zu Bitkom 2024, S)
@@ -607,6 +637,18 @@ Grit und Resilienz: Duckworth-Grit wird in der Praxis oft als Ausdauer gedeutet.
 Optimismus, Seligman und Schulman 1986 (Journal of Personality and Social Psychology): 94 erfahrene Versicherungsagenten: obere Hälfte im Attributional Style Questionnaire verkaufte in den ersten zwei Jahren 37 % mehr; neu eingestellte optimistische Agenten blieben doppelt so häufig im Job. LIMRA-Angabe der Autoren: 78 % der Neueinsteiger gehen binnen 3 Jahren. FAKT laut Abstract; korrelativ, Versicherungs-Außendienst (Übertragung auf B2B-IT: ANNAHME). Prüfung: Erklärungsstil beim "Verlorener Deal": externe, instabile Ursachen für Rückschläge plus eigener Lernanteil. Quelle: https://researchgate.net/profile/Peter-Schulman/publication/232497771_Explanatory_Style_as_a_Predictor_of_Productivity_and_Quitting_Among_Life_Insurance_Sales_Agents/links/547cc8f70cf2cfe203c1fc7c/Explanatory-Style-as-a-Predictor-of-Productivity-and-Quitting-Among-Life-Insurance-Sales-Agents.pdf (primär, Abstract)
 
 Topgrading (Bradford Smart): Chronologisches Interview über jede Stelle (Erfolge, Misserfolge, Gründe für Wechsel, Vorgesetzte), 4 bis 6 Stunden. Behauptete Trefferquote 75 bis 90 % stammt von Topgrading selbst, ohne unabhängige Prüfung. Das 75-%-Ziel ist ein Benchmark, keine Messung. Anbieter-Marketing. Zeigen: lückenlose, ehrliche Stationen, Wechselgründe ohne Schuldzuweisung. Quelle: https://www.sellingpower.com/2010/01/13/2350/the-top-grading-interview (sekundär)
+
+### Die Kriterien jenseits von HR im Einzelnen
+
+Alle Einträge sind ANNAHME aus Praxisquellen, soweit kein Beleg aus 5.B genannt ist. Die Beispiele sind erfunden.
+
+1. Abschlussstärke. Die Fähigkeit, ein Gespräch zu einer Entscheidung zu führen. Vertriebsleiter prüfen sie im Rollenspiel: Endet es mit einem konkreten nächsten Schritt? Im Lebenslauf zählen Abschlüsse und Abschlussquote. Beispiel für Erfahrene: "2025: 31 Abschlüsse aus 96 Angeboten." Beispiel für Einsteiger: "Im Nebenjob am Telefon hat jedes fünfte Gespräch zu einem Vertrag geführt." Auch die Bewerbung endet mit einem Vorschlag: "Ich rufe Sie am Donnerstag an."
+2. Quoten-Orientierung. Der Kandidat denkt in Ziel, Stand und Lücke und kennt seine Zahlen je Jahr auswendig. Die Quote ist die zentrale Messgröße (5.A Nr. 6). Beispiel: "Ziel 2025: 600.000 Euro Auftragseingang, erreicht 648.000 Euro, also 108 %." Wer ein Ziel verfehlt hat, nennt die Zahl und den Grund ohne Ausrede.
+3. Resilienz. Der Umgang mit Absagen und Durststrecken. Belegt ist der Erklärungsstil (Seligman und Schulman, 5.B), Grit nur schwach. Statt "ich bin hartnäckig" eine Dauer oder eine Zahl der Versuche. Beispiel: "Für den ersten Termin bei der Musterfirma habe ich elfmal angerufen."
+4. Eigeninitiative. Der Kandidat tut etwas, ohne dass es jemand verlangt. Vertriebsleiter lesen das an der Bewerbung selbst ab: Anruf vorab, Recherche, Nachfassen (5.E). Im Lebenslauf: eigenes Projekt, selbst aufgebaute Kundenliste, Weiterbildung auf eigene Kosten.
+5. Business Acumen. Der Kandidat versteht, womit der Kunde Geld verdient und was eine Lösung an Kosten, Risiko, Umsatz oder Zeit ändert (6.E). Geprüft wird es mit Fragen zum Geschäftsmodell der Firma und ihrer Kunden. Beispiel: "Der Kunde sparte durch die Umstellung rund 6 Stunden je Mitarbeiter und Woche." Im Gespräch kennt der Kandidat Produkt, Zielkunden und Preislogik der Firma.
+6. Hunter- oder Farmer-Neigung. Siehe 5.C.
+7. Pitch-Qualität der Bewerbung. Siehe 5.E. Der Vertriebsleiter liest die Bewerbung als Arbeitsprobe für den ersten Kundenkontakt.
 
 ### 5.C Hunter und Farmer
 
@@ -1004,30 +1046,30 @@ Gesprächsvorbereitung
 
 ## 8. Mythen und Strittiges auf einen Blick
 
-Die Zeilen 1, 2, 3 und 12 wurden zusätzlich zur Recherche einzeln nachgeprüft.
+Die Zeilen 1, 2, 3 und 12 wurden zusätzlich zur Recherche einzeln nachgeprüft. Das Etikett bewertet die Spalte "Stand". (S) heißt: nur über Sekundärquellen belegt.
 
-| Nr. | Behauptung | Stand | Etikett | Mehr in |
+| Nr. | Behauptung | Stand | Etikett für den Stand | Mehr in |
 |---|---|---|---|---|
-| 1 | Recruiter lesen einen Lebenslauf 6 Sekunden | TheLadders 2012: laut Sekundärberichten 30 Recruiter, rund 6 Sekunden für die erste Sichtung. 2018: 7,4 Sekunden, Teilnehmerzahl nicht ausgewiesen. US-Anbieterstudie, keine DACH-Messung. Gemessen ist die erste Sichtung, nicht die ganze Prüfung. | FAKT für die Messwerte, ANNAHME für die Übertragung | 4.A |
-| 2 | 75 % der Lebensläufe sortiert das ATS aus | Keine Primärquelle. Die Zahl geht laut Sekundärtexten auf eine Vertriebsaussage der Firma Preptel zurück, 2012 oder 2013. | nicht belegt | 2.D |
-| 3 | KI-Detektoren erkennen KI-Text zuverlässig | OpenAI hat seinen Klassifikator am 20.07.2023 eingestellt. Er erkannte 26 % der KI-Texte und stufte 9 % der menschlichen Texte falsch ein. Liang et al. 2023: 61,3 % Fehlalarm bei Aufsätzen von Nichtmuttersprachlern. | FAKT | 1.C |
-| 4 | Absichtliche Fehler machen einen Text menschlich | Kein Beleg. Saubere Grammatik ist laut Wikipedia kein KI-Merkmal. Hausregel: keine absichtlichen Fehler. | Mythos | 1.B |
-| 5 | Burstiness beweist menschliche Herkunft | Schreibhilfe für den Rhythmus, kein Beweis. | Mythos | 1.B |
+| 1 | Recruiter lesen einen Lebenslauf 6 Sekunden | TheLadders 2012: laut Sekundärberichten 30 Recruiter, rund 6 Sekunden für die erste Sichtung. 2018: 7,4 Sekunden, Teilnehmerzahl nicht ausgewiesen. US-Anbieterstudie, keine DACH-Messung. Gemessen ist die erste Sichtung, nicht die ganze Prüfung. | FAKT (S) für die Messwerte, ANNAHME für die Übertragung | 4.A |
+| 2 | 75 % der Lebensläufe sortiert das ATS aus | Keine Primärquelle. Die Zahl geht laut Sekundärtexten auf eine Vertriebsaussage der Firma Preptel zurück, 2012 oder 2013. | SPEKULATION | 2.D |
+| 3 | KI-Detektoren erkennen KI-Text zuverlässig | OpenAI hat seinen Klassifikator am 20.07.2023 eingestellt. Er erkannte 26 % der KI-Texte und stufte 9 % der menschlichen Texte falsch ein. Liang et al. 2023: 61,3 % Fehlalarm bei Aufsätzen von Nichtmuttersprachlern. | FAKT (S) | 1.C |
+| 4 | Absichtliche Fehler machen einen Text menschlich | Kein Beleg. Saubere Grammatik ist laut Wikipedia kein KI-Merkmal. Hausregel: keine absichtlichen Fehler. | SPEKULATION | 1.B |
+| 5 | Burstiness beweist menschliche Herkunft | Schreibhilfe für den Rhythmus, kein Beweis. | SPEKULATION | 1.B |
 | 6 | Der Gedankenstrich verrät KI | Nur zusammen mit anderen Merkmalen aussagekräftig, im Deutschen normales Schriftbild. Die Hausregel bleibt als Vorsicht: keine Gedankenstriche in Bewerbungstexten. | ANNAHME | 1.A |
 | 7 | Recruiter erkennen KI-Texte sofort | Selbsteinschätzung in Umfragen. Bestraft werden generische, unpersönliche und übertriebene Texte. | SCHLUSSFOLGERUNG | 1.D |
 | 8 | Das Anschreiben ist tot | StepStone 2025: 55 % der Firmen verlangen eines, 34 % der Recruiter halten es für entscheidend. | FAKT | 2.E |
 | 9 | Zahlen im Lebenslauf erhöhen die Einladungsquote um einen festen Prozentsatz | Plausibel, aber ohne unabhängige Messung. Die kursierenden Prozentwerte stammen aus Anbieter-Blogs. | ANNAHME | 2.C |
 | 10 | Eine Lücke ist ab zwei Monaten ein Problem | Ratgeber nennen 2, 3, 6 oder 12 Monate. Eine Norm gibt es nicht. | ANNAHME | 4.E |
 | 11 | Lücken immer benennen oder immer offen lassen | Die Quellen widersprechen sich. Hausregel: Lücken werden nicht versteckt. Eine Zeile lohnt, wenn es einen wahren, konkreten Inhalt gibt. "Arbeitssuchend" passt nur, wenn der Kandidat sofort anfangen kann. | SCHLUSSFOLGERUNG | 4.E |
-| 12 | Challenger sind 40 % der Spitzenverkäufer | CEB-Erhebung mit über 6.000 Verkäufern in rund 90 Firmen: Challenger 39 % der Top-Performer, Relationship Builder 7 %. Selbst- und Vorgesetztenurteile, Anbieterstudie. Die oft genannten 54 % für komplexe Verkäufe sind nur über Zweitquellen belegt. | FAKT mit Einschränkung | 5.B |
+| 12 | Challenger sind 40 % der Spitzenverkäufer | CEB-Erhebung mit über 6.000 Verkäufern in rund 90 Firmen: Challenger 39 % der Top-Performer, Relationship Builder 7 %. Selbst- und Vorgesetztenurteile, Anbieterstudie. Die oft genannten 54 % für komplexe Verkäufe sind nur über Zweitquellen belegt. | FAKT (S) mit Einschränkung | 5.B |
 | 13 | Verkäufer sind Hunter oder Farmer | Sprachgebrauch ohne gefundene empirische Prüfung. Die beiden Aufgaben, Neugeschäft und Bestand, sind real. | ANNAHME | 5.C |
 | 14 | Eine Fehlbesetzung im Vertrieb kostet mehrere Jahresgehälter | Zahlen aus Anbieterblogs, keine Primärstudie. | ANNAHME | 5.A |
-| 15 | Grit sagt Verkaufserfolg voraus | Metaanalyse von 2017: schwacher Zusammenhang, starke Überlappung mit Gewissenhaftigkeit. | FAKT über Sekundärquelle | 5.B |
+| 15 | Grit sagt Verkaufserfolg voraus | Metaanalyse von 2017: schwacher Zusammenhang, starke Überlappung mit Gewissenhaftigkeit. | FAKT (S) | 5.B |
 | 16 | Die Pipeline muss dreifach gedeckt sein | Faustregel. Die nötige Deckung hängt an der Abschlussquote. | ANNAHME | 6.D |
-| 17 | Im Buying Center sitzen 6 bis 10 Entscheider | Gartner zugeschrieben, nur über Zweitquellen belegt. | FAKT über Sekundärquelle | 6.A |
+| 17 | Im Buying Center sitzen 6 bis 10 Entscheider | Gartner zugeschrieben, nur über Zweitquellen belegt. | FAKT (S) | 6.A |
 | 18 | Käufer wollen keinen Verkäufer mehr | Gartner 2025: 61 % bevorzugen einen Kauf ohne Verkäufer. Das ist eine Vorliebe, kein Verhalten. | FAKT | 6.A |
 | 19 | Verlustaversion steuert Recruiter | Im Kern gut belegt, für die Personalauswahl ohne eigenen Beleg. | SCHLUSSFOLGERUNG | 3.A |
-| 20 | Leicht Lesbares wirkt wahrer | Der Effekt ist klein, eine Replikation von 2025 fand keinen. Kurze Sätze bleiben wegen der kurzen Sichtungszeit trotzdem richtig. | umstritten | 3.E |
+| 20 | Leicht Lesbares wirkt wahrer | Der Effekt ist klein, eine Replikation von 2025 fand keinen. Kurze Sätze bleiben wegen der kurzen Sichtungszeit trotzdem richtig. | SPEKULATION | 3.E |
 
 ### Offene Punkte für eine Nachprüfung
 
